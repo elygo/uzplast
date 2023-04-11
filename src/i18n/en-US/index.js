@@ -3,5 +3,11 @@
 
 export default {
   failed: 'Action failed',
-  success: 'Action was successful'
+  success: 'Action was successful',
+  home: 'Home',
+  about: 'About us',
+  services: 'Services',
+  products: 'Products',
+  contact: 'Contact',
+  address: 'Navoi city, Inspektorlar str. 257a'
 }

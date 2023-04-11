@@ -1,11 +1,36 @@
 <template>
-  <q-drawer v-model="drawer" side="right" overlay bordered>
-    En Ru Uz
-    <q-icon
-      name="close"
-      color="red"
-      @click="$emit('close', { uzunroq: false })"
-    />
+  <q-drawer v-model="drawer" side="right" overlay bordered class="text-black">
+    <div class="q-pa-md row justify-between">
+      <div>
+        <q-btn
+          flat
+          color="red"
+          style="font-size: large"
+          @click="handleChangeLang('uz')"
+          >Uz</q-btn
+        >
+        <q-btn
+          flat
+          color="red"
+          style="font-size: large"
+          @click="handleChangeLang('en')"
+          >En</q-btn
+        >
+        <q-btn
+          flat
+          color="red"
+          style="font-size: large"
+          @click="handleChangeLang('ru')"
+          >Ru</q-btn
+        >
+      </div>
+      <q-btn flat round color="red" @click="handleClose" icon="close" />
+    </div>
+    <div class="column">
+      <q-btn flat @click="handleChangePage('/')" style="font-size: xx-large">{{
+        $t("home")
+      }}</q-btn>
+    </div>
   </q-drawer>
 </template>
 
@@ -22,11 +47,6 @@ export default {
       drawer: false,
     };
   },
-  // computed: {
-  //   normalizedSize() {
-  //     return this.rightDrawerOpen;
-  //   },
-  // },
   watch: {
     rightDrawerOpen: function (val) {
       this.drawer = val;
@@ -34,7 +54,14 @@ export default {
   },
   methods: {
     handleClose() {
-      this.drawer = false;
+      this.$emit("close", { closeDrawer: false });
+    },
+    handleChangePage(route) {
+      this.handleClose();
+      this.$router.push(route);
+    },
+    handleChangeLang(lang) {
+      this.$i18n.locale = lang;
     },
   },
 };

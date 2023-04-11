@@ -1,3 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Ubuntu+Condensed:wght@300;400;500;600&display=swap");
 * {
-  font-family: "Teco", Helvetica, sans-serif;
+  font-family: "Ubuntu Condensed", "Montserrat", sans-serif;
+  overflow: hidden;
+}
+
+.q-tab__label {
+  font-size: 22px;
+}
+
+.scroll-to-top {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.q-timeline__dot {
+  margin: 0 10px;
+}
+
+.q-timeline__title {
+  margin-top: 8px;
+}
+
+.q-timeline__subtitle {
+  display: none;
+}
+
+.q-timeline__content {
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.q-parallax__media {
+  opacity: 0.5;
+}
+
+.q-parallax__content {
+}
+
+.q-drawer__opener {
+  display: none;
 }
