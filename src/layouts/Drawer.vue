@@ -30,6 +30,12 @@
       <q-btn flat @click="handleChangePage('/')" style="font-size: xx-large">{{
         $t("home")
       }}</q-btn>
+      <q-btn
+        flat
+        @click="handleChangePage('/message')"
+        style="font-size: xx-large"
+        >{{ $t("info") }}</q-btn
+      >
     </div>
   </q-drawer>
 </template>

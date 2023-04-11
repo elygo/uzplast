@@ -10,6 +10,8 @@
           src="../assets/logo_uzplast.svg"
           alt="Uzplast logo"
           v-bind:width="120"
+          @click="handleChangePage('/')"
+          style="cursor: pointer"
         />
         <q-space />
         <q-tabs
@@ -19,7 +21,14 @@
           v-if="!$q.screen.xs"
           active-color="red"
         >
-          <q-tab name="Homepage" :label="$t('home')" @click="scrollToDiv(0)" />
+          <q-tab
+            name="Homepage"
+            :label="$t('home')"
+            @click="
+              scrollToDiv(0);
+              handleChangePage('/');
+            "
+          />
           <q-tab name="About" :label="$t('about')" @click="scrollToDiv(600)" />
           <q-tab
             name="Services"
@@ -68,6 +77,7 @@
     </q-header>
 
     <q-page-container>
+      <router-view />
       <q-scroll-area
         :thumb-style="thumbStyle"
         ref="scrollAreaRef"
@@ -140,15 +150,17 @@
           </q-timeline>
         </div>
         <div
-          class="row q-mx-auto"
+          class="q-mx-auto"
           :style="{
+            display: 'flex',
+            flexDirection: !$q.screen.xs ? 'row' : 'column',
             width: !$q.screen.xs ? 'calc(100vw)' : 'calc(100vw)',
-            height: !$q.screen.xs ? 'calc(30vw)' : 'calc(50vw)',
+            height: !$q.screen.xs ? 'calc(30vw)' : 'calc(80vw)',
           }"
         >
           <div
             :style="{
-              width: !$q.screen.xs ? 'calc(30%)' : 'calc(50%)',
+              width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
               height: 'calc(100%)',
             }"
           >
@@ -157,7 +169,7 @@
           <div
             class="bg-red q-pa-xl"
             :style="{
-              width: !$q.screen.xs ? 'calc(70%)' : 'calc(50%)',
+              width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
               height: 'calc(100%)',
             }"
           >
@@ -165,7 +177,7 @@
               class="text-white"
               style="
                 font-size: 26px;
-                font-family: 'Montserrat', sans-serif;
+                font-family: 'Montserrat';
                 font-weight: 600;
               "
             >
@@ -173,12 +185,12 @@
             </p>
             <div
               class="text-white"
-              style="font-size: 18px; font-family: 'Montserrat', sans-serif"
+              style="font-size: 18px; font-family: 'Montserrat'"
             >
               <q-icon name="phone" class="q-mr-md" /><a
                 style="
                   font-size: 18px;
-                  font-family: 'Montserrat', sans-serif;
+                  font-family: 'Montserrat';
                   text-decoration: none !important;
                   color: white;
                 "
@@ -206,7 +218,7 @@
             </div>
           </div>
         </div>
-        <div class="q-pa-md bg-black text-white" style="height: 200px">
+        <div class="footer q-pa-md bg-black text-white" style="height: 200px">
           <div class="row justify-between" style="height: 100%">
             <div class="row items-center" style="width: 33%; height: 100%">
               © 2023 Uzplast. All Rights Reserved.
@@ -246,6 +258,7 @@ import { ref } from "vue";
 import DrawerRight from "./Drawer.vue";
 import MapLocation from "../components/MapLocation.vue";
 import { useI18n } from "vue-i18n";
+import { useRouter } from "vue-router";
 
 export default {
   components: { DrawerRight, MapLocation },
@@ -255,6 +268,8 @@ export default {
     const closeDrawer = ref(false);
     const scrollAreaRef = ref(null);
     const scrollPos = ref(0);
+
+    const router = useRouter();
 
     const { t, locale } = useI18n({ useScope: "global" });
 
@@ -281,6 +296,10 @@ export default {
       scrollPos.value = e.verticalPosition;
     }
 
+    function handleChangePage(route) {
+      router.push(route);
+    }
+
     return {
       thumbStyle: {
         backgroundColor: "red",
@@ -296,6 +315,7 @@ export default {
       scrollToDiv,
       handleChangeLang,
       setPositionOnScroll,
+      handleChangePage,
     };
   },
 };

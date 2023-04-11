@@ -4,8 +4,7 @@
     ref="scrollAreaRef"
     style="height: calc(100vh - 82px); max-width: 100vw"
   >
-    <div class="q-pa-md bg-yellow" style="height: 400px">our services</div>
-    <div class="q-pa-md" style="height: 400px">window</div>
+    <div class="q-pa-md" style="height: calc(100vh - 282px)">info</div>
     <div class="footer q-pa-md bg-black text-white" style="height: 200px">
       <div class="row justify-between" style="height: 100%">
         <div class="row items-center" style="width: 33%; height: 100%">
@@ -28,18 +27,13 @@
 </template>
 
 <script>
-import router from "src/router";
 import { ref } from "vue";
 export default {
-  name: "IndexPage",
+  name: "MessagePage",
   setup() {
     const scrollAreaRef = ref(null);
 
     return {
-      scrollAreaRef,
-      thumbStyle: {
-        backgroundColor: "red",
-      },
       scrollToDiv(height) {
         scrollAreaRef.value.setScrollPosition("vertical", height);
       },
