@@ -3,6 +3,7 @@ export default {
   success: 'Togri',
   home: 'Bosh sahifa',
   about: 'Biz haqimizda',
+  info: 'Ma`lumot',
   services: 'Xizmatlar',
   products: 'Mahsulotlar',
   contact: 'Aloqa',

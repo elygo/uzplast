@@ -1,6 +1,5 @@
 <template>
   <q-scroll-area
-    :thumb-style="thumbStyle"
     ref="scrollAreaRef"
     style="height: calc(100vh - 82px); max-width: 100vw"
   >

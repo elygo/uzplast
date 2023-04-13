@@ -3,6 +3,7 @@ export default {
     success: 'Успешно',
     home: 'Главная',
     about: 'О нас',
+    info: 'Информация',
     services: 'Услуги',
     products: 'Продукты',
     contact: 'Контакт',
