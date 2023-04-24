@@ -91,26 +91,56 @@
 
         <!-- quality section -->
         <div
-          class="q-pa-md quality row"
-          style="height: 600px; max-width: 100vw"
+          class="q-pa-md quality bg-grey-1"
+          :style="{
+            display: 'flex',
+            flexDirection: !$q.screen.xs ? 'row' : 'column',
+            height: '600px',
+            width: '100vw',
+          }"
         >
           <div
             :style="{
-              width: !$q.screen.xs ? '30%' : '100%',
-              height: !$q.screen.xs ? '600px' : '200px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: !$q.screen.xs ? 'calc(50vw)' : 'calc(100vw)',
+              height: !$q.screen.xs ? 'calc(70%)' : 'calc(50%)',
             }"
           >
+            <div class="col justify-center text-h4">
+              <p class="text-weight-bold text-light-blue-6">SALQIN YOZ</p>
+            </div>
             <img
               src="../assets/glass_in_summer.svg"
               alt="summer"
-              style="width: 100%; height: 100%"
+              :style="{
+                width: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+                height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+              }"
             />
           </div>
-          <div style="height: 30vw; width: 30vw">
+          <div
+            :style="{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: !$q.screen.xs ? 'calc(50vw)' : 'calc(100vw)',
+              height: !$q.screen.xs ? 'calc(70%)' : 'calc(50%)',
+            }"
+          >
+            <div class="col justify-center text-h4">
+              <p class="text-weight-bold text-deep-orange-6">ISSIQ QISH</p>
+            </div>
             <img
               src="../assets/glass_in_winter.svg"
               alt="winter"
-              style="width: 100%; height: 100%"
+              :style="{
+                width: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+                height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+              }"
             />
           </div>
         </div>
@@ -161,7 +191,7 @@
         </div>
 
         <!-- parallax -->
-        <div :speed="0.5" style="height: 600px; max-width: 100vw">
+        <div :speed="0.5" style="height: 500px; max-width: 100vw">
           <q-parallax src="../assets/sky-apartment.jpg">
             <h1 class="">Basic</h1>
           </q-parallax>
@@ -172,59 +202,112 @@
           <div
             class="q-mx-auto"
             :style="{
+              height: !$q.screen.xs ? '710px' : '930px',
               width: !$q.screen.xs ? 'calc(60vw)' : 'calc(90vw)',
             }"
           >
             <q-timeline class="q-mx-lg" color="red">
-              <q-timeline-entry heading>Bizning xizmatlar</q-timeline-entry>
-              <q-timeline-entry
-                title="Ishlab chiqarish"
-                icon="warehouse"
-                color="red"
+              <q-timeline-entry heading class="q-mt-lg" style="height: 60px">
+                <transition
+                  appear
+                  enter-active-class="animated fadeInDown"
+                  leave-active-class="animated fadeOutDown"
+                  ><span v-if="scrollPos > 2200">Bizning xizmatlar</span>
+                </transition>
+              </q-timeline-entry>
+              <transition
+                appear
+                enter-active-class="animated fadeInDown"
+                leave-active-class="animated fadeOutDown"
               >
-                <div class="bg-grey-3 q-pa-sm rounded-borders">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </div>
-              </q-timeline-entry>
-              <q-timeline-entry title="O'lchov olish" icon="design_services">
-                <div class="bg-grey-3 q-pa-sm rounded-borders">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </div>
-              </q-timeline-entry>
-              <q-timeline-entry title="Yetkazib berish" icon="local_shipping">
-                <div class="bg-grey-3 q-pa-sm rounded-borders">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </div>
-              </q-timeline-entry>
-              <q-timeline-entry title="Montaj ishlari" icon="construction">
-                <div class="bg-grey-3 q-pa-sm rounded-borders">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </div>
-              </q-timeline-entry>
-              <q-timeline-entry
-                title="Kafolatli xizmat"
-                color="green"
-                icon="done_all"
+                <q-timeline-entry
+                  title="Ishlab chiqarish"
+                  icon="warehouse"
+                  color="red"
+                  v-if="scrollPos > 2300"
+                >
+                  <div class="bg-grey-3 q-pa-sm rounded-borders">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </div>
+                </q-timeline-entry>
+              </transition>
+              <transition
+                appear
+                enter-active-class="animated fadeInDown"
+                leave-active-class="animated fadeOutDown"
               >
-                <div class="bg-grey-3 q-pa-sm rounded-borders">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </div>
-              </q-timeline-entry>
+                <q-timeline-entry
+                  title="O'lchov olish"
+                  icon="design_services"
+                  v-if="scrollPos > 2400"
+                >
+                  <div class="bg-grey-3 q-pa-sm rounded-borders">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </div>
+                </q-timeline-entry>
+              </transition>
+              <transition
+                appear
+                enter-active-class="animated fadeInDown"
+                leave-active-class="animated fadeOutDown"
+              >
+                <q-timeline-entry
+                  title="Yetkazib berish"
+                  icon="local_shipping"
+                  v-if="scrollPos > 2500"
+                >
+                  <div class="bg-grey-3 q-pa-sm rounded-borders">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </div>
+                </q-timeline-entry>
+              </transition>
+
+              <transition
+                appear
+                enter-active-class="animated fadeInDown"
+                leave-active-class="animated fadeOutDown"
+              >
+                <q-timeline-entry
+                  title="Montaj ishlari"
+                  icon="construction"
+                  v-if="scrollPos > 2600"
+                >
+                  <div class="bg-grey-3 q-pa-sm rounded-borders">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </div>
+                </q-timeline-entry>
+              </transition>
+              <transition
+                appear
+                enter-active-class="animated fadeInDown"
+                leave-active-class="animated fadeOutDown"
+              >
+                <q-timeline-entry
+                  title="Kafolatli xizmat"
+                  color="green"
+                  icon="done_all"
+                  v-if="scrollPos > 2700"
+                >
+                  <div class="bg-grey-3 q-pa-sm rounded-borders">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </div>
+                </q-timeline-entry>
+              </transition>
             </q-timeline>
           </div>
         </div>
@@ -236,7 +319,7 @@
             display: 'flex',
             flexDirection: !$q.screen.xs ? 'row' : 'column',
             width: !$q.screen.xs ? 'calc(100vw)' : 'calc(100vw)',
-            height: !$q.screen.xs ? 'calc(30vw)' : 'calc(80vw)',
+            height: !$q.screen.xs ? 'calc(30vw)' : 'calc(100vw)',
           }"
         >
           <div
@@ -355,6 +438,7 @@ export default {
     const scrollAreaRef = ref(null);
     const scrollPos = ref(0);
     const selectedImageIndex = ref(0);
+    const vis = ref(false);
     const laminatedProfiles = ref([
       {
         src: "./assets/window_white.jpg",
@@ -399,6 +483,10 @@ export default {
       closeDrawer.value = !closeDrawer.value;
     }
 
+    function setVis() {
+      vis.value = true;
+    }
+
     function scrollToDiv(height) {
       scrollAreaRef.value.setScrollPosition("vertical", height, 400);
     }
@@ -429,11 +517,13 @@ export default {
       selectedImageIndex,
       laminatedProfiles,
       selectedLaminatedProfiles,
+      vis,
       handleClick,
       scrollToDiv,
       handleChangeLang,
       setPositionOnScroll,
       handleChangePage,
+      setVis,
     };
   },
 };

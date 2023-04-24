@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Ubuntu+Condensed:wght@300;400;500;600&display=swap");
 * {
   font-family: "Ubuntu Condensed", "Montserrat", sans-serif;
+}
+
+html {
   overflow: hidden;
 }
 
@@ -55,4 +58,8 @@
   border-radius: 50%;
   background-size: cover;
   background-position: center center;
+}
+
+:root {
+  --animate-duration: 3s;
 }
