@@ -5,7 +5,7 @@
       elevated
       class="bg-white text-black hover:bg-red q-py-md shadow-1"
     >
-      <q-toolbar class="q-pl-lg q-my">
+      <q-toolbar class="q-pl-lg q-my row align-center">
         <img
           src="../assets/logo_uzplast.svg"
           alt="Uzplast logo"
@@ -29,36 +29,64 @@
               handleChangePage('/');
             "
           />
-          <q-tab name="About" :label="$t('about')" @click="scrollToDiv(600)" />
+          <q-tab name="About" :label="$t('about')" @click="scrollToDiv(1)" />
           <q-tab
             name="Services"
             :label="$t('services')"
-            @click="scrollToDiv(1200)"
+            @click="scrollToDiv(2)"
           />
           <q-tab
             name="Products"
             :label="$t('products')"
-            @click="scrollToDiv(1800)"
+            @click="scrollToDiv(3)"
           />
           <q-tab
             name="Contact"
             :label="$t('contact')"
-            @click="scrollToDiv(2400)"
+            @click="scrollToDiv(4)"
           />
           <q-space />
         </q-tabs>
 
         <q-space />
-        <q-select
-          borderless
-          label-color="red"
-          v-if="!$q.screen.xs"
-          v-model="selectedLanguage"
-          :options="language"
-          option-label="value"
-          option-value="label"
-          @update:model-value="handleChangeLang"
-        />
+        <div class="row">
+          <q-select
+            borderless
+            label-color="red"
+            v-if="!$q.screen.xs"
+            v-model="selectedLanguage.selected"
+            :options="language"
+            option-label="value"
+            option-value="label"
+            @update:model-value="handleChangeLang"
+          >
+            <template v-slot:option="{ itemProps, opt, index }">
+              <q-item
+                :key="index"
+                v-ripple
+                v-bind="itemProps"
+                @click="handleOptionClick(opt.value, opt.image)"
+              >
+                <q-item-section avatar class="">
+                  <img :src="opt.image" />
+                </q-item-section>
+                <q-item-section>{{ opt.label }}</q-item-section>
+              </q-item>
+            </template>
+          </q-select>
+          <img
+            class="q-mx-sm"
+            :src="selectedLanguage.icon"
+            alt=""
+            v-if="!$q.screen.xs"
+            style="
+               {
+                height: 20px;
+                width: 25px;
+              }
+            "
+          />
+        </div>
         <q-space v-if="$q.screen.xs" />
 
         <DrawerRight
@@ -85,9 +113,15 @@
         @scroll="setPositionOnScroll"
       >
         <!-- home section -->
-        <div class="q-pa-md home" style="height: 600px">home</div>
+        <div class="q-pa-md home" style="height: calc(100vh - 82px)">home</div>
 
-        <div class="q-pa-md about" style="height: 600px">about</div>
+        <div
+          class="q-pa-md about"
+          style="heig
+        ht: calc(100vh - 82px)"
+        >
+          <PartnerRequestForm />
+        </div>
 
         <!-- quality section -->
         <div
@@ -95,7 +129,7 @@
           :style="{
             display: 'flex',
             flexDirection: !$q.screen.xs ? 'row' : 'column',
-            height: '600px',
+            height: 'calc(100vh - 82px)',
             width: '100vw',
           }"
         >
@@ -103,7 +137,6 @@
             :style="{
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
               alignItems: 'center',
               width: !$q.screen.xs ? 'calc(50vw)' : 'calc(100vw)',
               height: !$q.screen.xs ? 'calc(70%)' : 'calc(50%)',
@@ -125,7 +158,6 @@
             :style="{
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
               alignItems: 'center',
               width: !$q.screen.xs ? 'calc(50vw)' : 'calc(100vw)',
               height: !$q.screen.xs ? 'calc(70%)' : 'calc(50%)',
@@ -146,7 +178,7 @@
         </div>
 
         <!-- colored profiles section -->
-        <div class="q-pa-md colored row" style="height: 600px">
+        <div class="q-pa-md colored row" style="height: calc(100vh - 82px)">
           <div
             :style="{
               width: !$q.screen.xs ? '30%' : '100%',
@@ -191,7 +223,7 @@
         </div>
 
         <!-- parallax -->
-        <div :speed="0.5" style="height: 500px; max-width: 100vw">
+        <div :speed="0.5" style="height: calc(100vh - 82px); max-width: 100vw">
           <q-parallax src="../assets/sky-apartment.jpg">
             <h1 class="">Basic</h1>
           </q-parallax>
@@ -202,8 +234,12 @@
           <div
             class="q-mx-auto"
             :style="{
-              height: !$q.screen.xs ? '710px' : '930px',
-              width: !$q.screen.xs ? 'calc(60vw)' : 'calc(90vw)',
+              height: 'calc(100vh - 82px)',
+              width: !$q.screen.xs
+                ? $q.screen.sm
+                  ? 'calc(80vw)'
+                  : 'calc(60vw)'
+                : 'calc(90vw)',
             }"
           >
             <q-timeline class="q-mx-lg" color="red">
@@ -426,11 +462,13 @@ import router from "src/router";
 import { ref, computed } from "vue";
 import DrawerRight from "./Drawer.vue";
 import MapLocation from "../components/MapLocation.vue";
+import PartnerRequestForm from "src/components/PartnerRequestForm.vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
+import uzUZ from "src/i18n/uz-UZ";
 
 export default {
-  components: { DrawerRight, MapLocation },
+  components: { DrawerRight, MapLocation, PartnerRequestForm },
   setup() {
     const tab = ref("Homepage");
     const isActive = ref(false);
@@ -438,7 +476,7 @@ export default {
     const scrollAreaRef = ref(null);
     const scrollPos = ref(0);
     const selectedImageIndex = ref(0);
-    const vis = ref(false);
+    const vh = ref(0);
     const laminatedProfiles = ref([
       {
         src: "./assets/window_white.jpg",
@@ -472,27 +510,32 @@ export default {
 
     const { t, locale } = useI18n({ useScope: "global" });
 
-    const selectedLanguage = ref("uz");
+    const selectedLanguage = ref({ selected: "uz", icon: "./assets/uz.svg" });
     const language = ref([
-      { label: "O`zbekcha", value: "uz" },
-      { label: "English", value: "en" },
-      { label: "Русский", value: "ru" },
+      { label: "O`zbekcha", value: "uz", image: "./assets/uz.svg" },
+      { label: "English", value: "en", image: "./assets/gb.svg" },
+      { label: "Русский", value: "ru", image: "./assets/ru.svg" },
     ]);
 
     function handleClick() {
       closeDrawer.value = !closeDrawer.value;
     }
 
-    function setVis() {
-      vis.value = true;
-    }
-
     function scrollToDiv(height) {
-      scrollAreaRef.value.setScrollPosition("vertical", height, 400);
+      scrollAreaRef.value.setScrollPosition(
+        "vertical",
+        (window.innerHeight - 82) * height,
+        400
+      );
     }
 
-    function handleChangeLang(lang) {
-      locale.value = lang.value;
+    function handleChangeLang(newValue) {
+      locale.value = newValue.value;
+    }
+
+    function handleOptionClick(selectedVal, icon) {
+      selectedLanguage.value.selected = selectedVal;
+      selectedLanguage.value.icon = icon;
     }
 
     function setPositionOnScroll(e) {
@@ -517,13 +560,12 @@ export default {
       selectedImageIndex,
       laminatedProfiles,
       selectedLaminatedProfiles,
-      vis,
       handleClick,
       scrollToDiv,
       handleChangeLang,
+      handleOptionClick,
       setPositionOnScroll,
       handleChangePage,
-      setVis,
     };
   },
 };

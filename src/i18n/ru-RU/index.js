@@ -7,5 +7,18 @@ export default {
     services: 'Услуги',
     products: 'Продукты',
     contact: 'Контакт',
+    typesomething: 'Пожалуйста, введите что-нибудь',
+    yourname: 'Ваше имя',
+    namesurname: 'Имя и фамилия',
+    companyname: 'Название компании',
+    nameyourcompany: 'Название вашей компании',
+    youremailphone: 'Ваш электронный адрес/номер телефона',
+    emailorphone: 'Электронный адрес или номер телефона',
+    leavemessage: 'Оставьте сообщение',
+    letscooperate: 'Давайте сотрудничать!',
+    submit: 'Отправить',
+    reset: 'Сбросить',
+    submitted: 'Отправлено!',
+    somethingwentwrong: 'Ошибка, что-то пошло не так!',
     address: 'г. Навои. ул. Инспекторлар, 257а'
 }

@@ -2,18 +2,19 @@
   "name": "uzplast",
   "version": "0.0.1",
   "description": "web app for a company",
-  "productName": "uzplast",
+  "productName": "UzPlast",
   "author": "elygo <el.uzb93@gmail.com>",
   "private": true,
   "scripts": {
     "start": "quasar dev",
+    "build": "quasar build",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "core-js": "^3.6.5",
     "ol": "^7.3.0",
     "quasar": "^2.6.0",
