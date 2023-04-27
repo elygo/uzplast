@@ -6,6 +6,7 @@
     >
       <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
         <q-input
+          color="green"
           filled
           v-model="name"
           :label="$t('yourname')"
@@ -15,6 +16,7 @@
         />
 
         <q-input
+          color="green"
           filled
           v-model="companyname"
           :label="$t('companyname')"
@@ -24,6 +26,7 @@
         />
 
         <q-input
+          color="green"
           filled
           v-model="email"
           :label="$t('youremailphone')"
@@ -33,8 +36,10 @@
         />
 
         <q-input
+          color="green"
           filled
           v-model="question"
+          type="textarea"
           :label="$t('leavemessage')"
           :hint="$t('letscooperate')"
           lazy-rules

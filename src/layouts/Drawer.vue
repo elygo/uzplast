@@ -1,30 +1,30 @@
 <template>
   <q-drawer v-model="drawer" side="right" overlay bordered class="text-black">
-    <div class="q-pa-md row justify-between bg-grey-2">
+    <div class="q-pa-md row justify-between bg-primary">
       <div>
         <q-btn
           flat
-          color="red"
+          color="white"
           style="font-size: large"
           @click="handleChangeLang('uz')"
           >Uz</q-btn
         >
         <q-btn
           flat
-          color="red"
+          color="white"
           style="font-size: large"
           @click="handleChangeLang('en')"
           >En</q-btn
         >
         <q-btn
           flat
-          color="red"
+          color="white"
           style="font-size: large"
           @click="handleChangeLang('ru')"
           >Ru</q-btn
         >
       </div>
-      <q-btn flat round color="red" @click="handleClose" icon="close" />
+      <q-btn flat round color="white" @click="handleClose" icon="close" />
     </div>
     <div class="column">
       <q-btn flat @click="handleChangePage('/')" style="font-size: xx-large">{{

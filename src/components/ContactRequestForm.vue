@@ -2,6 +2,7 @@
   <div class="q-pa-md" style="max-width: 400px">
     <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
       <q-input
+        color="green"
         filled
         v-model="name"
         label="Your name"
@@ -11,6 +12,7 @@
       />
 
       <q-input
+        color="green"
         filled
         v-model="email"
         label="Your email/phone"
@@ -20,8 +22,10 @@
       />
 
       <q-input
+        color="green"
         filled
         v-model="description"
+        type="textarea"
         label="Message"
         hint="Description"
         lazy-rules

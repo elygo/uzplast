@@ -189,7 +189,7 @@
           <div class="home__content">
             <div class="home__content-image">
               <img
-                :style="{ width: 'calc(100%)' }"
+                :style="{ width: 'calc(80%)' }"
                 src="../assets/2Elegante.png"
                 alt="windows_colored"
                 srcset=""
