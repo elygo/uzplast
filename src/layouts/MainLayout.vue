@@ -1,11 +1,7 @@
 <template>
   <q-layout view="hHr lpR ffr">
-    <q-header
-      reveal
-      elevated
-      class="bg-white text-black hover:bg-red q-py-md shadow-1"
-    >
-      <q-toolbar class="q-pl-lg q-my row align-center">
+    <div class="header-container">
+      <q-toolbar class="q-my text-white">
         <img
           src="../assets/logo_uzplast.svg"
           alt="Uzplast logo"
@@ -14,50 +10,52 @@
           style="cursor: pointer"
         />
         <q-space />
-        <q-tabs
-          v-model="tab"
-          shrink
-          stretch
-          v-if="!$q.screen.xs"
-          active-color="red"
-        >
-          <q-tab
-            name="Homepage"
-            :label="$t('home')"
-            @click="
-              scrollToDiv(0);
-              handleChangePage('/');
-            "
-          />
-          <q-tab name="About" :label="$t('about')" @click="scrollToDiv(1)" />
-          <q-tab
-            name="Services"
-            :label="$t('services')"
-            @click="scrollToDiv(2)"
-          />
-          <q-tab
-            name="Products"
-            :label="$t('products')"
-            @click="scrollToDiv(3)"
-          />
-          <q-tab
-            name="Contact"
-            :label="$t('contact')"
-            @click="scrollToDiv(4)"
-          />
-          <q-space />
-        </q-tabs>
+        <div class="tabs-container">
+          <div v-if="$q.screen.xs || $q.screen.sm" class="red-bg"></div>
+          <q-tabs
+            v-model="tab"
+            shrink
+            stretch
+            v-if="!$q.screen.xs && !$q.screen.sm"
+            active-color="white"
+          >
+            <q-tab
+              name="Homepage"
+              :label="$t('home')"
+              @click="
+                scrollToDiv(0);
+                handleChangePage('/');
+              "
+            />
+            <q-tab name="About" :label="$t('about')" @click="scrollToDiv(1)" />
+            <q-tab
+              name="Services"
+              :label="$t('services')"
+              @click="scrollToDiv(2)"
+            />
+            <q-tab
+              name="Products"
+              :label="$t('products')"
+              @click="scrollToDiv(3)"
+            />
+            <q-tab
+              name="Contact"
+              :label="$t('contact')"
+              @click="scrollToDiv(4)"
+            />
+            <q-space />
+          </q-tabs>
+        </div>
 
         <q-space />
-        <div class="row">
+        <div class="row text-white">
           <q-select
             borderless
-            label-color="red"
-            v-if="!$q.screen.xs"
+            color="primary"
+            label-color="white"
+            v-if="!$q.screen.xs && !$q.screen.sm"
             v-model="selectedLanguage.selected"
             :options="language"
-            option-label="value"
-            option-value="label"
             @update:model-value="handleChangeLang"
           >
             <template v-slot:option="{ itemProps, opt, index }">
@@ -67,7 +65,7 @@
                 v-bind="itemProps"
                 @click="handleOptionClick(opt.value, opt.image)"
               >
-                <q-item-section avatar class="">
+                <q-item-section avatar>
                   <img :src="opt.image" />
                 </q-item-section>
                 <q-item-section>{{ opt.label }}</q-item-section>
@@ -78,7 +76,7 @@
             class="q-mx-sm"
             :src="selectedLanguage.icon"
             alt=""
-            v-if="!$q.screen.xs"
+            v-if="!$q.screen.xs && !$q.screen.sm"
             style="
                {
                 height: 20px;
@@ -94,7 +92,7 @@
           @close="(x) => (this.closeDrawer = x.closeDrawer)"
         />
         <q-btn
-          v-if="$q.screen.xs"
+          v-if="$q.screen.xs || $q.screen.sm"
           dense
           flat
           round
@@ -102,7 +100,7 @@
           @click="handleClick"
         />
       </q-toolbar>
-    </q-header>
+    </div>
 
     <q-page-container>
       <router-view />
@@ -113,13 +111,94 @@
         @scroll="setPositionOnScroll"
       >
         <!-- home section -->
-        <div class="q-pa-md home" style="height: calc(100vh - 82px)">home</div>
+        <div class="q-pa-md home container" style="height: calc(100vh - 82px)">
+          <div class="home__text">
+            <span class="home__text-title"
+              >Plastik <span class="text-primary">profillar</span></span
+            >
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Reprehenderit nemo aut assumenda placeat dolores dignissimos, fuga
+              voluptatibus quas architecto est! Veniam commodi neque, eius atque
+              beatae similique repudiandae magnam expedita.
+            </p>
+            <ul class="home__text-list">
+              <li>
+                <q-icon
+                  size="1.5rem"
+                  name="check_circle"
+                  color="primary"
+                  class="q-mr-md"
+                />
+                Sifatli va hamyonbop plastik profillar ishlab chiqarish;
+              </li>
+              <li>
+                <q-icon
+                  size="1.5rem"
+                  name="check_circle"
+                  color="primary"
+                  class="q-mr-md"
+                />
+                Didingizga mos ranglar, istalgan o'lchamlar;
+              </li>
+              <li>
+                <q-icon
+                  size="1.5rem"
+                  name="check_circle"
+                  color="primary"
+                  class="q-mr-md"
+                />30 yillik kafolat;
+              </li>
+              <li>
+                <q-icon
+                  size="1.5rem"
+                  name="check_circle"
+                  color="primary"
+                  class="q-mr-md"
+                />Xaridor bilan individual ishlash;
+              </li>
+              <li>
+                <q-icon
+                  size="1.5rem"
+                  name="check_circle"
+                  color="primary"
+                  class="q-mr-md"
+                />Hudud bo'yicha bepul yetkazib berish;
+              </li>
+              <li>
+                <q-icon
+                  size="1.5rem"
+                  name="check_circle"
+                  color="primary"
+                  class="q-mr-md"
+                />Deraza va eshiklar ishlab chiqarish;
+              </li>
+              <li>
+                <q-icon
+                  size="1.5rem"
+                  name="check_circle"
+                  color="primary"
+                  class="q-mr-md"
+                />Vaqtida va sifatli o'rnatish.
+              </li>
+            </ul>
+            <button class="home__text-btn" @click="contactDialog()">
+              Bizga yozing!
+            </button>
+          </div>
+          <div class="home__content">
+            <div class="home__content-image">
+              <img
+                :style="{ width: 'calc(100%)' }"
+                src="../assets/2Elegante.png"
+                alt="windows_colored"
+                srcset=""
+              />
+            </div>
+          </div>
+        </div>
 
-        <div
-          class="q-pa-md about"
-          style="heig
-        ht: calc(100vh - 82px)"
-        >
+        <div class="q-pa-md about" style="height: calc(100vh - 82px)">
           <PartnerRequestForm />
         </div>
 
@@ -242,7 +321,7 @@
                 : 'calc(90vw)',
             }"
           >
-            <q-timeline class="q-mx-lg" color="red">
+            <q-timeline class="q-mx-lg" color="primary">
               <q-timeline-entry heading class="q-mt-lg" style="height: 60px">
                 <transition
                   appear
@@ -259,7 +338,7 @@
                 <q-timeline-entry
                   title="Ishlab chiqarish"
                   icon="warehouse"
-                  color="red"
+                  color="primary"
                   v-if="scrollPos > 2300"
                 >
                   <div class="bg-grey-3 q-pa-sm rounded-borders">
@@ -367,7 +446,7 @@
             <MapLocation />
           </div>
           <div
-            class="bg-red q-pa-lg"
+            class="bg-primary q-pa-lg"
             :style="{
               width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
               height: 'calc(100%)',
@@ -448,7 +527,7 @@
       <q-btn
         v-if="scrollPos > 400"
         round
-        color="red"
+        color="primary"
         icon="expand_less"
         @click="scrollToDiv(0)"
         class="scroll-to-top"
@@ -465,18 +544,18 @@ import MapLocation from "../components/MapLocation.vue";
 import PartnerRequestForm from "src/components/PartnerRequestForm.vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
-import uzUZ from "src/i18n/uz-UZ";
+import { useQuasar } from "quasar";
 
 export default {
   components: { DrawerRight, MapLocation, PartnerRequestForm },
   setup() {
+    const $q = useQuasar();
     const tab = ref("Homepage");
     const isActive = ref(false);
     const closeDrawer = ref(false);
     const scrollAreaRef = ref(null);
     const scrollPos = ref(0);
     const selectedImageIndex = ref(0);
-    const vh = ref(0);
     const laminatedProfiles = ref([
       {
         src: "./assets/window_white.jpg",
@@ -510,11 +589,11 @@ export default {
 
     const { t, locale } = useI18n({ useScope: "global" });
 
-    const selectedLanguage = ref({ selected: "uz", icon: "./assets/uz.svg" });
+    const selectedLanguage = ref({ selected: "Uz", icon: "./assets/uz.svg" });
     const language = ref([
-      { label: "O`zbekcha", value: "uz", image: "./assets/uz.svg" },
-      { label: "English", value: "en", image: "./assets/gb.svg" },
-      { label: "Русский", value: "ru", image: "./assets/ru.svg" },
+      { label: "O`zbekcha", value: "Uz", image: "./assets/uz.svg" },
+      { label: "English", value: "En", image: "./assets/gb.svg" },
+      { label: "Русский", value: "Ru", image: "./assets/ru.svg" },
     ]);
 
     function handleClick() {
@@ -546,9 +625,15 @@ export default {
       router.push(route);
     }
 
+    function contactDialog() {
+      $q.dialog({
+        component: PartnerRequestForm,
+      });
+    }
+
     return {
       thumbStyle: {
-        backgroundColor: "red",
+        backgroundColor: "#cf1c39",
       },
       selectedLanguage,
       language,
@@ -566,6 +651,7 @@ export default {
       handleOptionClick,
       setPositionOnScroll,
       handleChangePage,
+      contactDialog,
     };
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <q-drawer v-model="drawer" side="right" overlay bordered class="text-black">
-    <div class="q-pa-md row justify-between">
+    <div class="q-pa-md row justify-between bg-grey-2">
       <div>
         <q-btn
           flat

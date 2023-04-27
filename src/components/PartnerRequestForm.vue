@@ -1,54 +1,59 @@
 <template>
-  <div class="q-pa-md" style="max-width: 400px">
-    <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-      <q-input
-        filled
-        v-model="name"
-        :label="$t('yourname')"
-        :hint="$t('namesurname')"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || $t('typesomething')]"
-      />
-
-      <q-input
-        filled
-        v-model="companyname"
-        :label="$t('companyname')"
-        :hint="$t('nameyourcompany')"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || $t('typesomething')]"
-      />
-
-      <q-input
-        filled
-        v-model="email"
-        :label="$t('youremailphone')"
-        :hint="$t('emailorphone')"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || $t('typesomething')]"
-      />
-
-      <q-input
-        filled
-        v-model="question"
-        :label="$t('leavemessage')"
-        :hint="$t('letscooperate')"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || $t('typesomething')]"
-      />
-
-      <div>
-        <q-btn :label="$t('submit')" type="submit" color="green" />
-        <q-btn
-          :label="$t('reset')"
-          type="reset"
-          color="red"
-          flat
-          class="q-ml-sm"
+  <q-dialog>
+    <q-card
+      class="q-pa-lg"
+      :style="{ width: !$q.screen.xs ? '400px' : '90vw' }"
+    >
+      <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+        <q-input
+          filled
+          v-model="name"
+          :label="$t('yourname')"
+          :hint="$t('namesurname')"
+          lazy-rules
+          :rules="[(val) => (val && val.length > 0) || $t('typesomething')]"
         />
-      </div>
-    </q-form>
-  </div>
+
+        <q-input
+          filled
+          v-model="companyname"
+          :label="$t('companyname')"
+          :hint="$t('nameyourcompany')"
+          lazy-rules
+          :rules="[(val) => (val && val.length > 0) || $t('typesomething')]"
+        />
+
+        <q-input
+          filled
+          v-model="email"
+          :label="$t('youremailphone')"
+          :hint="$t('emailorphone')"
+          lazy-rules
+          :rules="[(val) => (val && val.length > 0) || $t('typesomething')]"
+        />
+
+        <q-input
+          filled
+          v-model="question"
+          :label="$t('leavemessage')"
+          :hint="$t('letscooperate')"
+          lazy-rules
+          :rules="[(val) => (val && val.length > 0) || $t('typesomething')]"
+        />
+
+        <div>
+          <q-btn outline :label="$t('submit')" type="submit" color="green" />
+          <q-btn
+            :label="$t('reset')"
+            type="reset"
+            color="primary"
+            outline
+            class="q-ml-sm"
+          />
+        </div>
+      </q-form>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
