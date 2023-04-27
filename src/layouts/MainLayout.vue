@@ -276,6 +276,7 @@
                   height: '60px',
                   width: '60px',
                   backgroundImage: 'url(' + image.lamination + ')',
+                  cursor: 'pointer',
                 }"
                 @click="selectedImageIndex = index"
               ></div>
