@@ -1,30 +1,46 @@
 <template>
   <q-drawer v-model="drawer" side="right" overlay bordered class="text-black">
-    <div class="q-pa-md row justify-between bg-primary">
+    <div class="q-pa-md row justify-between bg-primary" style="height: 82px">
       <div>
         <q-btn
-          flat
-          color="white"
-          style="font-size: large"
-          @click="handleChangeLang('uz')"
+          class="q-mx-xs btn-drawer"
+          round
+          outlined
+          color="primary"
+          size="md"
+          @click="handleChangeLang('Uz')"
           >Uz</q-btn
         >
         <q-btn
-          flat
-          color="white"
-          style="font-size: large"
-          @click="handleChangeLang('en')"
+          class="q-mx-xs btn-drawer"
+          round
+          outlined
+          color="primary"
+          size="md"
+          @click="handleChangeLang('En')"
           >En</q-btn
         >
         <q-btn
-          flat
-          color="white"
-          style="font-size: large"
-          @click="handleChangeLang('ru')"
+          class="q-mx-xs btn-drawer"
+          round
+          outlined
+          color="primary"
+          size="md"
+          @click="handleChangeLang('Ru')"
           >Ru</q-btn
         >
       </div>
-      <q-btn flat round color="white" @click="handleClose" icon="close" />
+      <div>
+        <q-btn
+          class="btn-drawer"
+          round
+          outlined
+          color="primary"
+          size="md"
+          @click="handleClose"
+          icon="close"
+        />
+      </div>
     </div>
     <div class="column">
       <q-btn flat @click="handleChangePage('/')" style="font-size: xx-large">{{

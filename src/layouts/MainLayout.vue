@@ -112,15 +112,24 @@
       >
         <!-- home section -->
         <div class="q-pa-md home container" style="height: calc(100vh - 82px)">
-          <div class="home__text">
-            <span class="home__text-title"
+          <div
+            class="home__text"
+            :style="{
+              width: !$q.screen.xs && !$q.screen.sm ? '50%' : '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems:
+                !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+            }"
+          >
+            <span class="home__text-title" :style="{}"
               >Plastik <span class="text-primary">profillar</span></span
             >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Reprehenderit nemo aut assumenda placeat dolores dignissimos, fuga
-              voluptatibus quas architecto est! Veniam commodi neque, eius atque
-              beatae similique repudiandae magnam expedita.
+            <p v-if="!$q.screen.xs && !$q.screen.sm">
+              Bizning kompaniya deraza va eshiklar uchun yuqori sifatli PVX
+              profillar ishlab chiqaruvchi bo'lib, keng assortimentimiz sizning
+              maxsus ehtiyojlaringizni qondirish uchun mo'ljallangan.
             </p>
             <ul class="home__text-list">
               <li>
@@ -183,10 +192,10 @@
               </li>
             </ul>
             <button class="home__text-btn" @click="contactDialog()">
-              Bizga yozing!
-            </button>
+              Bizga yozing!</button
+            ><PartnerRequestForm />
           </div>
-          <div class="home__content">
+          <div class="home__content" v-if="!$q.screen.xs && !$q.screen.sm">
             <div class="home__content-image">
               <img
                 :style="{ width: 'calc(80%)' }"
@@ -198,232 +207,259 @@
           </div>
         </div>
 
-        <div class="q-pa-md about" style="height: calc(100vh - 82px)">
-          <PartnerRequestForm />
-        </div>
+        <div class="q-pa-md about" style="height: calc(100vh - 82px)"></div>
 
         <!-- quality section -->
-        <div
-          class="q-pa-md quality bg-grey-1"
-          :style="{
-            display: 'flex',
-            flexDirection: !$q.screen.xs ? 'row' : 'column',
-            height: 'calc(100vh - 82px)',
-            width: '100vw',
-          }"
-        >
+        <div class="quality bg-grey-1">
           <div
+            class="q-pa-md container"
             :style="{
               display: 'flex',
-              flexDirection: 'column',
               alignItems: 'center',
-              width: !$q.screen.xs ? 'calc(50vw)' : 'calc(100vw)',
-              height: !$q.screen.xs ? 'calc(70%)' : 'calc(50%)',
+              justifyContent: 'center',
+              flexDirection: !$q.screen.xs ? 'row' : 'column',
+              height: 'calc(100vh - 82px)',
+              width: '100%',
             }"
           >
-            <div class="col justify-center text-h4">
-              <p class="text-weight-bold text-light-blue-6">SALQIN YOZ</p>
-            </div>
-            <img
-              src="../assets/glass_in_summer.svg"
-              alt="summer"
+            <div
               :style="{
-                width: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
-                height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
+                height: !$q.screen.xs ? 'calc(90%)' : 'calc(50%)',
               }"
-            />
-          </div>
-          <div
-            :style="{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              width: !$q.screen.xs ? 'calc(50vw)' : 'calc(100vw)',
-              height: !$q.screen.xs ? 'calc(70%)' : 'calc(50%)',
-            }"
-          >
-            <div class="col justify-center text-h4">
-              <p class="text-weight-bold text-deep-orange-6">ISSIQ QISH</p>
+            >
+              <div class="col justify-center">
+                <span
+                  class="text-weight-bold text-light-blue-6"
+                  :style="{
+                    fontSize: !$q.screen.xs && !$q.screen.sm ? '34px' : '24px',
+                    textAlign: 'center',
+                  }"
+                >
+                  SALQIN YOZ
+                </span>
+              </div>
+              <img
+                src="../assets/glass_in_summer.svg"
+                alt="summer"
+                :style="{
+                  width: !$q.screen.xs ? 'calc(60%)' : 'calc(50%)',
+                  height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+                }"
+              />
+              <div
+                class="col justify-center"
+                :style="{
+                  fontSize: !$q.screen.xs && !$q.screen.sm ? '24px' : '14px',
+                  textAlign: 'center',
+                }"
+              >
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Facere, aliquid eligendi, blanditiis maiores explicabo
+                repellendus neque tempore officia et
+              </div>
             </div>
-            <img
-              src="../assets/glass_in_winter.svg"
-              alt="winter"
+            <div
               :style="{
-                width: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
-                height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'space-evenly',
+                width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
+                height: !$q.screen.xs ? 'calc(90%)' : 'calc(50%)',
               }"
-            />
+            >
+              <div class="col justify-center">
+                <span
+                  class="text-weight-bold text-yellow-9"
+                  :style="{
+                    fontSize: !$q.screen.xs && !$q.screen.sm ? '34px' : '24px',
+                    textAlign: 'center',
+                  }"
+                >
+                  ISSIQ QISH
+                </span>
+              </div>
+              <img
+                src="../assets/glass_in_winter.svg"
+                alt="winter"
+                :style="{
+                  width: !$q.screen.xs ? 'calc(60%)' : 'calc(50%)',
+                  height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+                }"
+              />
+              <div
+                class="col justify-center align-center"
+                :style="{
+                  fontSize: !$q.screen.xs && !$q.screen.sm ? '24px' : '14px',
+                  textAlign: 'center',
+                }"
+              >
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Facere, aliquid eligendi, blanditiis maiores explicabo
+                repellendus neque tempore officia
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- colored profiles section -->
-        <div class="q-pa-md colored row" style="height: calc(100vh - 82px)">
-          <div
-            :style="{
-              width: !$q.screen.xs ? '30%' : '100%',
-              height: !$q.screen.xs ? '600px' : '200px',
-            }"
-            class="row justify-center items-center"
-          >
+        <div class="colored" style="height: calc(100vh - 82px)">
+          <div class="q-pa-md row container">
             <div
-              class="q-ma-md text-center"
-              v-for="(image, index) in laminatedProfiles"
-              :key="index"
+              :style="{
+                width: !$q.screen.xs ? '40%' : '100%',
+                height: !$q.screen.xs ? '600px' : '200px',
+              }"
+              class="row justify-center items-center"
             >
               <div
-                class="rounded-lamination-picker shadow-2 q-pa-md"
-                :style="{
-                  height: '60px',
-                  width: '60px',
-                  backgroundImage: 'url(' + image.lamination + ')',
-                  cursor: 'pointer',
-                }"
-                @click="selectedImageIndex = index"
-              ></div>
+                class="q-ma-md text-center"
+                v-for="(image, index) in laminatedProfiles"
+                :key="index"
+              >
+                <div
+                  class="rounded-lamination-picker shadow-2 q-pa-md"
+                  :style="{
+                    height: '60px',
+                    width: '60px',
+                    backgroundImage: 'url(' + image.lamination + ')',
+                    cursor: 'pointer',
+                  }"
+                  @click="selectedImageIndex = index"
+                ></div>
 
-              <div class="text q-mt-md">
-                {{ image.alt }}
+                <div class="text q-mt-md">
+                  {{ image.alt }}
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="image-container row q-mx-auto q-my-auto"
-            :style="{
-              width: !$q.screen.xs ? '600px' : '90vw',
-              height: !$q.screen.xs ? '400px' : '60vw',
-            }"
-          >
-            <img
-              v-for="(image, index) in selectedLaminatedProfiles"
-              :key="index"
-              :src="image.src"
-              :alt="image.alt"
-            />
+            <div
+              class="image-container row q-mx-auto q-my-auto"
+              :style="{
+                width: !$q.screen.xs ? '600px' : '90vw',
+                height: !$q.screen.xs ? '400px' : '60vw',
+              }"
+            >
+              <img
+                v-for="(image, index) in selectedLaminatedProfiles"
+                :key="index"
+                :src="image.src"
+                :alt="image.alt"
+              />
+            </div>
           </div>
         </div>
 
         <!-- parallax -->
-        <div :speed="0.5" style="height: calc(100vh - 82px); max-width: 100vw">
+        <!-- <div :speed="0.5" style="height: calc(100vh - 82px); max-width: 100vw">
           <q-parallax src="../assets/sky-apartment.jpg">
             <h1 class="">Basic</h1>
           </q-parallax>
-        </div>
+        </div> -->
 
         <!-- services section -->
-        <div class="services">
+        <div class="services container">
           <div
-            class="q-mx-auto"
+            class=""
             :style="{
-              height: 'calc(100vh - 82px)',
-              width: !$q.screen.xs
-                ? $q.screen.sm
-                  ? 'calc(80vw)'
-                  : 'calc(60vw)'
-                : 'calc(90vw)',
+              minHeight: 'calc(100vh - 82px)',
+              width:
+                !$q.screen.xs && !$q.screen.sm ? 'calc(60vw)' : 'calc(90vw)',
             }"
           >
             <q-timeline class="q-mx-lg" color="primary">
-              <q-timeline-entry heading class="q-mt-lg" style="height: 60px">
-                <transition
-                  appear
-                  enter-active-class="animated fadeInDown"
-                  leave-active-class="animated fadeOutDown"
-                  ><span v-if="scrollPos > 2200">Bizning xizmatlar</span>
-                </transition>
+              <q-timeline-entry heading class="q-mt-lg">
+                <span>Bizning xizmatlar</span>
               </q-timeline-entry>
-              <transition
-                appear
-                enter-active-class="animated fadeInDown"
-                leave-active-class="animated fadeOutDown"
+              <q-timeline-entry
+                title="Ishlab chiqarish"
+                icon="warehouse"
+                color="primary"
               >
-                <q-timeline-entry
-                  title="Ishlab chiqarish"
-                  icon="warehouse"
-                  color="primary"
-                  v-if="scrollPos > 2300"
+                <div
+                  class="bg-grey-1 q-pa-sm"
+                  :style="{
+                    borderTopLeftRadius: '25px',
+                    borderBottomRightRadius: '25px',
+                    border: '1px solid #cf1c39',
+                  }"
                 >
-                  <div class="bg-grey-3 q-pa-sm rounded-borders">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </div>
-                </q-timeline-entry>
-              </transition>
-              <transition
-                appear
-                enter-active-class="animated fadeInDown"
-                leave-active-class="animated fadeOutDown"
-              >
-                <q-timeline-entry
-                  title="O'lchov olish"
-                  icon="design_services"
-                  v-if="scrollPos > 2400"
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+              </q-timeline-entry>
+              <q-timeline-entry title="O'lchov olish" icon="design_services">
+                <div
+                  class="bg-grey-1 q-pa-sm"
+                  :style="{
+                    borderTopLeftRadius: '25px',
+                    borderBottomRightRadius: '25px',
+                    border: '1px solid #cf1c39',
+                  }"
                 >
-                  <div class="bg-grey-3 q-pa-sm rounded-borders">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </div>
-                </q-timeline-entry>
-              </transition>
-              <transition
-                appear
-                enter-active-class="animated fadeInDown"
-                leave-active-class="animated fadeOutDown"
-              >
-                <q-timeline-entry
-                  title="Yetkazib berish"
-                  icon="local_shipping"
-                  v-if="scrollPos > 2500"
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+              </q-timeline-entry>
+              <q-timeline-entry title="Yetkazib berish" icon="local_shipping">
+                <div
+                  class="bg-grey-1 q-pa-sm"
+                  :style="{
+                    borderTopLeftRadius: '25px',
+                    borderBottomRightRadius: '25px',
+                    border: '1px solid #cf1c39',
+                  }"
                 >
-                  <div class="bg-grey-3 q-pa-sm rounded-borders">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </div>
-                </q-timeline-entry>
-              </transition>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+              </q-timeline-entry>
 
-              <transition
-                appear
-                enter-active-class="animated fadeInDown"
-                leave-active-class="animated fadeOutDown"
-              >
-                <q-timeline-entry
-                  title="Montaj ishlari"
-                  icon="construction"
-                  v-if="scrollPos > 2600"
+              <q-timeline-entry title="Montaj ishlari" icon="construction">
+                <div
+                  class="bg-grey-1 q-pa-sm"
+                  :style="{
+                    borderTopLeftRadius: '25px',
+                    borderBottomRightRadius: '25px',
+                    border: '1px solid #cf1c39',
+                  }"
                 >
-                  <div class="bg-grey-3 q-pa-sm rounded-borders">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </div>
-                </q-timeline-entry>
-              </transition>
-              <transition
-                appear
-                enter-active-class="animated fadeInDown"
-                leave-active-class="animated fadeOutDown"
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+              </q-timeline-entry>
+              <q-timeline-entry
+                title="Kafolatli xizmat"
+                color="green"
+                icon="done_all"
               >
-                <q-timeline-entry
-                  title="Kafolatli xizmat"
-                  color="green"
-                  icon="done_all"
-                  v-if="scrollPos > 2700"
+                <div
+                  class="bg-grey-1 q-pa-sm"
+                  :style="{
+                    borderTopLeftRadius: '25px',
+                    borderBottomRightRadius: '25px',
+                    border: '1px solid green',
+                  }"
                 >
-                  <div class="bg-grey-3 q-pa-sm rounded-borders">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </div>
-                </q-timeline-entry>
-              </transition>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+              </q-timeline-entry>
             </q-timeline>
           </div>
         </div>
@@ -435,7 +471,7 @@
             display: 'flex',
             flexDirection: !$q.screen.xs ? 'row' : 'column',
             width: !$q.screen.xs ? 'calc(100vw)' : 'calc(100vw)',
-            height: !$q.screen.xs ? 'calc(30vw)' : 'calc(100vw)',
+            height: !$q.screen.xs ? 'calc(30vw)' : 'calc(100vh)',
           }"
         >
           <div
@@ -453,24 +489,13 @@
               height: 'calc(100%)',
             }"
           >
-            <p
-              class="text-white"
-              style="
-                font-size: 26px;
-                font-family: 'Montserrat';
-                font-weight: 600;
-              "
-            >
+            <p class="text-white" style="font-size: 26px; font-weight: 600">
               {{ $t("contact") }}
             </p>
-            <div
-              class="text-white"
-              style="font-size: 18px; font-family: 'Montserrat'"
-            >
+            <div class="text-white" style="font-size: 18px">
               <q-icon name="phone" class="q-mr-md" /><a
                 style="
                   font-size: 18px;
-                  font-family: 'Montserrat';
                   text-decoration: none !important;
                   color: white;
                 "
@@ -482,7 +507,6 @@
               <a
                 style="
                   font-size: 18px;
-                  font-family: 'Montserrat';
                   text-decoration: none !important;
                   color: white;
                 "
@@ -490,22 +514,35 @@
                 >info@uzplast.com</a
               >
             </div>
-            <div
-              class="text-white q-my-lg"
-              style="font-size: 18px; font-family: 'Montserrat'"
-            >
+            <div class="text-white q-my-lg" style="font-size: 18px">
               <q-icon name="location_on" /> {{ $t("address") }}
             </div>
           </div>
         </div>
 
         <!-- footer -->
-        <div
-          class="footer bg-black text-white"
-          style="height: 200px; width: 100vw"
-        >
-          <div class="row justify-between" style="height: 100%">
-            <div class="row items-center" style="width: 33%; height: 100%">
+        <div class="footer text-white">
+          <div
+            class="q-pa-md container"
+            :style="{
+              display: 'flex',
+              flexDirection: !$q.screen.xs && !$q.screen.sm ? 'row' : 'column',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              width: '100%',
+              height: '100%',
+            }"
+          >
+            <div
+              :style="{
+                display: 'flex',
+                justifyContent:
+                  !$q.screen.xs && !$q.screen.sm ? 'start' : 'center',
+                alignItems: 'center',
+                width: !$q.screen.xs && !$q.screen.sm ? '33%' : '100%',
+                height: '100%',
+              }"
+            >
               © 2023 Uzplast. All Rights Reserved.
             </div>
             <div
@@ -519,9 +556,20 @@
               />
             </div>
             <div
-              class="row items-center"
-              style="width: 33%; height: 100%"
-            ></div>
+              :style="{
+                display: 'flex',
+                justifyContent:
+                  !$q.screen.xs && !$q.screen.sm ? 'end' : 'center',
+                alignItems: 'center',
+                width: !$q.screen.xs && !$q.screen.sm ? '33%' : '100%',
+                height: '100%',
+              }"
+            >
+              <q-icon name="mdi-telegram" size="lg" class="q-mx-sm" />
+              <q-icon name="mdi-facebook" size="lg" class="q-mx-sm" />
+              <q-icon name="mdi-youtube" size="lg" class="q-mx-sm" />
+              <q-icon name="mdi-instagram" size="lg" class="q-mx-sm" />
+            </div>
           </div>
         </div>
       </q-scroll-area>

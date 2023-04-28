@@ -1,9 +1,9 @@
 <template>
   <q-dialog>
-    <q-card
-      class="q-pa-lg"
-      :style="{ width: !$q.screen.xs ? '400px' : '90vw' }"
-    >
+    <q-card class="q-pa-lg" :style="{ width: !$q.screen.xs ? '400px' : '90vw' }"
+      ><div class="text-h5 q-pb-md row justify-between">
+        <span> {{ $t("contact") }}</span> <span>(+998) 90 501-90-00</span>
+      </div>
       <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
         <q-input
           color="green"
