@@ -121,6 +121,18 @@ html {
       font-weight: 600;
       font-family: "Ubuntu Condensed", sans-serif;
       font-size: 50px;
+
+      &--border {
+        height: 2px;
+        background: rgb(255, 255, 255);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 1) 20%,
+          rgba(207, 28, 57, 1) 20%,
+          rgba(207, 28, 57, 1) 80%,
+          rgba(255, 255, 255, 1) 80%
+        );
+      }
     }
 
     &-title:nth-child(2) {
@@ -203,10 +215,72 @@ html {
   height: 100%;
   width: 100%;
   display: flex;
+
+  &__title {
+    font-size: 50px;
+    display: flex;
+    margin-bottom: 20px;
+
+    &--border {
+      height: 2px;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 20%,
+        rgba(207, 28, 57, 1) 20%,
+        rgba(207, 28, 57, 1) 80%,
+        rgba(255, 255, 255, 1) 80%
+      );
+    }
+  }
 }
+
+.quality {
+  height: 100%;
+  width: 100%;
+
+  &__title {
+    font-size: 50px;
+    display: flex;
+    margin-bottom: 20px;
+
+    &--border {
+      height: 2px;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 20%,
+        rgba(207, 28, 57, 1) 20%,
+        rgba(207, 28, 57, 1) 80%,
+        rgba(255, 255, 255, 1) 80%
+      );
+    }
+  }
+}
+
 .colored {
   background-image: url("../assets/bg.png");
   background-size: contain;
+}
+
+.services {
+  margin: auto;
+  &__title {
+    font-size: 50px;
+    display: flex;
+    margin-bottom: 20px;
+    &--border {
+      height: 2px;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 20%,
+        rgba(207, 28, 57, 1) 20%,
+        rgba(207, 28, 57, 1) 80%,
+        rgba(255, 255, 255, 1) 80%
+      );
+    }
+  }
 }
 
 .footer {

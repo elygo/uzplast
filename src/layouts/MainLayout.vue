@@ -121,15 +121,19 @@
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
+              gap: !$q.screen.xs && !$q.screen.sm ? '25px' : '',
               alignItems:
                 !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
             }"
           >
-            <span class="home__text-title" :style="{}"
+            <span class="home__text-title"
               >{{ $t("plastic") }}
-              <span class="text-primary">{{ $t("profiles") }}</span></span
-            >
-            <p v-if="!$q.screen.xs && !$q.screen.sm">{{ $t("motto") }}</p>
+              <span class="text-primary">{{ $t("profiles") }}</span>
+              <div class="home__text-title--border"></div>
+            </span>
+            <p v-if="!$q.screen.xs && !$q.screen.sm">
+              {{ $t("motto") }}
+            </p>
             <ul class="home__text-list">
               <li>
                 <q-icon
@@ -204,6 +208,7 @@
           </div>
         </div>
 
+        <!-- products section -->
         <div class="container">
           <div
             class="q-pa-md products column"
@@ -212,12 +217,25 @@
                 !$q.screen.xs && !$q.screen.sm ? 'calc(100vh - 82px)' : '',
             }"
           >
-            <div class="text-h4 q-mb-lg">Products</div>
+            <span
+              class="products__title"
+              :style="{
+                justifyContent:
+                  !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+              }"
+            >
+              <span
+                >Products
+                <div class="products__title--border"></div
+              ></span>
+            </span>
             <div
-              class="row wrap justify-between"
+              class="row wrap"
               :style="{
                 minHeight:
                   !$q.screen.xs && !$q.screen.sm ? 'calc(100% - 150px)' : '',
+                justifyContent: !$q.screen.xs ? 'space-between' : 'center',
+                alignItems: !$q.screen.xs && !$q.screen.sm ? '' : '',
               }"
             >
               <q-card
@@ -225,7 +243,7 @@
                 :key="product.id"
                 class="q-mb-md"
                 :style="{
-                  width: !$q.screen.xs && !$q.screen.sm ? '250px' : '90vw',
+                  width: !$q.screen.xs ? '250px' : '90vw',
                 }"
               >
                 <q-img :src="product.image" style="height: 100%">
@@ -241,98 +259,121 @@
         </div>
 
         <!-- quality section -->
-        <div class="quality bg-grey-1">
+        <div class="container">
           <div
-            class="q-pa-md container"
+            class="q-pa-md quality"
             :style="{
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: !$q.screen.xs ? 'row' : 'column',
+              flexDirection: 'column',
               height: 'calc(100vh - 82px)',
               width: '100%',
             }"
           >
+            <span
+              class="quality__title"
+              :style="{
+                justifyContent:
+                  !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+              }"
+            >
+              <span
+                >{{ $t("Quality") }}
+                <div class="quality__title--border"></div
+              ></span>
+            </span>
             <div
               :style="{
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
-                height: !$q.screen.xs ? 'calc(90%)' : 'calc(50%)',
+                flexDirection: !$q.screen.xs ? 'row' : 'column',
+                height: 'calc(100vh - 150px)',
               }"
             >
-              <div class="col justify-center">
-                <span
-                  class="text-weight-bold text-light-blue-6"
+              <div
+                :style="{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
+                  height: !$q.screen.xs ? 'calc(90%)' : 'calc(50%)',
+                }"
+              >
+                <img
+                  src="../assets/glass_in_summer.svg"
+                  alt="summer"
                   :style="{
-                    fontSize: !$q.screen.xs && !$q.screen.sm ? '34px' : '24px',
+                    width: !$q.screen.xs ? 'calc(60%)' : 'calc(50%)',
+                    height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+                  }"
+                />
+
+                <div class="col justify-center">
+                  <span
+                    class="text-weight-bold text-light-blue-6"
+                    :style="{
+                      fontSize:
+                        !$q.screen.xs && !$q.screen.sm ? '34px' : '24px',
+                      textAlign: 'center',
+                    }"
+                  >
+                    SALQIN YOZ
+                  </span>
+                </div>
+                <div
+                  class="col justify-center"
+                  :style="{
+                    fontSize: !$q.screen.xs && !$q.screen.sm ? '24px' : '14px',
                     textAlign: 'center',
                   }"
                 >
-                  SALQIN YOZ
-                </span>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Facere, aliquid eligendi, blanditiis maiores explicabo
+                  repellendus neque tempore officia et
+                </div>
               </div>
-              <img
-                src="../assets/glass_in_summer.svg"
-                alt="summer"
-                :style="{
-                  width: !$q.screen.xs ? 'calc(60%)' : 'calc(50%)',
-                  height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
-                }"
-              />
               <div
-                class="col justify-center"
                 :style="{
-                  fontSize: !$q.screen.xs && !$q.screen.sm ? '24px' : '14px',
-                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
+                  height: !$q.screen.xs ? 'calc(90%)' : 'calc(50%)',
                 }"
               >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Facere, aliquid eligendi, blanditiis maiores explicabo
-                repellendus neque tempore officia et
-              </div>
-            </div>
-            <div
-              :style="{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'space-evenly',
-                width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
-                height: !$q.screen.xs ? 'calc(90%)' : 'calc(50%)',
-              }"
-            >
-              <div class="col justify-center">
-                <span
-                  class="text-weight-bold text-yellow-9"
+                <img
+                  src="../assets/glass_in_winter.svg"
+                  alt="winter"
                   :style="{
-                    fontSize: !$q.screen.xs && !$q.screen.sm ? '34px' : '24px',
+                    width: !$q.screen.xs ? 'calc(60%)' : 'calc(50%)',
+                    height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
+                  }"
+                />
+                <div class="col justify-center">
+                  <span
+                    class="text-weight-bold text-yellow-9"
+                    :style="{
+                      fontSize:
+                        !$q.screen.xs && !$q.screen.sm ? '34px' : '24px',
+                      textAlign: 'center',
+                    }"
+                  >
+                    ISSIQ QISH
+                  </span>
+                </div>
+                <div
+                  class="col justify-center align-center"
+                  :style="{
+                    fontSize: !$q.screen.xs && !$q.screen.sm ? '24px' : '14px',
                     textAlign: 'center',
                   }"
                 >
-                  ISSIQ QISH
-                </span>
-              </div>
-              <img
-                src="../assets/glass_in_winter.svg"
-                alt="winter"
-                :style="{
-                  width: !$q.screen.xs ? 'calc(60%)' : 'calc(50%)',
-                  height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
-                }"
-              />
-              <div
-                class="col justify-center align-center"
-                :style="{
-                  fontSize: !$q.screen.xs && !$q.screen.sm ? '24px' : '14px',
-                  textAlign: 'center',
-                }"
-              >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Facere, aliquid eligendi, blanditiis maiores explicabo
-                repellendus neque tempore officia
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Facere, aliquid eligendi, blanditiis maiores explicabo
+                  repellendus neque tempore officia
+                </div>
               </div>
             </div>
           </div>
@@ -394,21 +435,30 @@
         </div> -->
 
         <!-- services section -->
-        <div class="services container">
+        <div class="container">
           <div
-            class=""
+            class="services"
             :style="{
               minHeight: 'calc(100vh - 82px)',
               width:
                 !$q.screen.xs && !$q.screen.sm ? 'calc(60vw)' : 'calc(90vw)',
             }"
           >
-            <q-timeline class="q-mx-lg" color="primary">
-              <q-timeline-entry heading class="q-mt-lg">
-                <span>Bizning xizmatlar</span>
-              </q-timeline-entry>
+            <span
+              class="services__title"
+              :style="{
+                justifyContent:
+                  !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+              }"
+            >
+              <span>
+                {{ $t("ourservices") }}
+                <div class="services__title--border"></div>
+              </span>
+            </span>
+            <q-timeline class="" color="primary">
               <q-timeline-entry
-                title="Ishlab chiqarish"
+                :title="$t('production')"
                 icon="warehouse"
                 color="primary"
               >
@@ -420,13 +470,10 @@
                     border: '1px solid #cf1c39',
                   }"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  {{ $t("productioncontent") }}
                 </div>
               </q-timeline-entry>
-              <q-timeline-entry title="O'lchov olish" icon="design_services">
+              <q-timeline-entry :title="$t('measuring')" icon="design_services">
                 <div
                   class="bg-grey-1 q-pa-sm"
                   :style="{
@@ -435,13 +482,10 @@
                     border: '1px solid #cf1c39',
                   }"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  {{ $t("measuringcontent") }}
                 </div>
               </q-timeline-entry>
-              <q-timeline-entry title="Yetkazib berish" icon="local_shipping">
+              <q-timeline-entry :title="$t('delivery')" icon="local_shipping">
                 <div
                   class="bg-grey-1 q-pa-sm"
                   :style="{
@@ -450,14 +494,14 @@
                     border: '1px solid #cf1c39',
                   }"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  {{ $t("deliverycontent") }}
                 </div>
               </q-timeline-entry>
 
-              <q-timeline-entry title="Montaj ishlari" icon="construction">
+              <q-timeline-entry
+                :title="$t('installationwork')"
+                icon="construction"
+              >
                 <div
                   class="bg-grey-1 q-pa-sm"
                   :style="{
@@ -466,14 +510,11 @@
                     border: '1px solid #cf1c39',
                   }"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  {{ $t("installationworkcontent") }}
                 </div>
               </q-timeline-entry>
               <q-timeline-entry
-                title="Kafolatli xizmat"
+                :title="$t('guaranteedservice')"
                 color="green"
                 icon="done_all"
               >
@@ -485,10 +526,7 @@
                     border: '1px solid green',
                   }"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  {{ $t("guaranteedservicecontent") }}
                 </div>
               </q-timeline-entry>
             </q-timeline>
