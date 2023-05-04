@@ -9,7 +9,7 @@ export default {
     contact: 'Контакт',
     plastic: 'ПВХ',
     profiles: 'профили',
-    motto: 'Our company is a manufacturer of high-quality PVC profiles for windows and doors, and our wide range is designed to meet your specific needs.',
+    motto: 'Наша компания является производителем высококачественных ПВХ профилей для окон и дверей, а наш широкий ассортимент ПВХ продуктов предназначен  для удовлетворения потребностей наших клиентов.',
     qualityprice: 'Производство качественных и доступных пластиковых профилей;',
     coloredprofiles: 'Любые размеры и цвета на Ваш вкус;',
     warranty: '30 летняя гарантия;',
