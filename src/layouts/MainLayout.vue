@@ -50,6 +50,7 @@
         <q-space />
         <div class="row text-white">
           <q-select
+            class="customText"
             borderless
             color="primary"
             label-color="white"
@@ -89,6 +90,7 @@
 
         <DrawerRight
           :rightDrawerOpen="closeDrawer"
+          :scrollAreaRefDrawer="scrollAreaRef"
           @close="(x) => (this.closeDrawer = x.closeDrawer)"
         />
         <q-btn
@@ -124,13 +126,10 @@
             }"
           >
             <span class="home__text-title" :style="{}"
-              >Plastik <span class="text-primary">profillar</span></span
+              >{{ $t("plastic") }}
+              <span class="text-primary">{{ $t("profiles") }}</span></span
             >
-            <p v-if="!$q.screen.xs && !$q.screen.sm">
-              Bizning kompaniya deraza va eshiklar uchun yuqori sifatli PVX
-              profillar ishlab chiqaruvchi bo'lib, keng assortimentimiz sizning
-              maxsus ehtiyojlaringizni qondirish uchun mo'ljallangan.
-            </p>
+            <p v-if="!$q.screen.xs && !$q.screen.sm">{{ $t("motto") }}</p>
             <ul class="home__text-list">
               <li>
                 <q-icon
@@ -138,8 +137,7 @@
                   name="check_circle"
                   color="primary"
                   class="q-mr-md"
-                />
-                Sifatli va hamyonbop plastik profillar ishlab chiqarish;
+                />{{ $t("qualityprice") }}
               </li>
               <li>
                 <q-icon
@@ -147,8 +145,7 @@
                   name="check_circle"
                   color="primary"
                   class="q-mr-md"
-                />
-                Didingizga mos ranglar, istalgan o'lchamlar;
+                />{{ $t("coloredprofiles") }}
               </li>
               <li>
                 <q-icon
@@ -156,7 +153,7 @@
                   name="check_circle"
                   color="primary"
                   class="q-mr-md"
-                />30 yillik kafolat;
+                />{{ $t("warranty") }}
               </li>
               <li>
                 <q-icon
@@ -164,7 +161,7 @@
                   name="check_circle"
                   color="primary"
                   class="q-mr-md"
-                />Xaridor bilan individual ishlash;
+                />{{ $t("individualwork") }}
               </li>
               <li>
                 <q-icon
@@ -172,7 +169,7 @@
                   name="check_circle"
                   color="primary"
                   class="q-mr-md"
-                />Hudud bo'yicha bepul yetkazib berish;
+                />{{ $t("freedelivery") }}
               </li>
               <li>
                 <q-icon
@@ -180,7 +177,7 @@
                   name="check_circle"
                   color="primary"
                   class="q-mr-md"
-                />Deraza va eshiklar ishlab chiqarish;
+                />{{ $t("productionwindows") }}
               </li>
               <li>
                 <q-icon
@@ -188,11 +185,11 @@
                   name="check_circle"
                   color="primary"
                   class="q-mr-md"
-                />Vaqtida va sifatli o'rnatish.
+                />{{ $t("installation") }}
               </li>
             </ul>
             <button class="home__text-btn" @click="contactDialog()">
-              Bizga yozing!</button
+              {{ $t("contactus") }}</button
             ><PartnerRequestForm />
           </div>
           <div class="home__content" v-if="!$q.screen.xs && !$q.screen.sm">
@@ -207,7 +204,41 @@
           </div>
         </div>
 
-        <div class="q-pa-md about" style="height: calc(100vh - 82px)"></div>
+        <div class="container">
+          <div
+            class="q-pa-md products column"
+            :style="{
+              height:
+                !$q.screen.xs && !$q.screen.sm ? 'calc(100vh - 82px)' : '',
+            }"
+          >
+            <div class="text-h4 q-mb-lg">Products</div>
+            <div
+              class="row wrap justify-between"
+              :style="{
+                minHeight:
+                  !$q.screen.xs && !$q.screen.sm ? 'calc(100% - 150px)' : '',
+              }"
+            >
+              <q-card
+                v-for="product in products"
+                :key="product.id"
+                class="q-mb-md"
+                :style="{
+                  width: !$q.screen.xs && !$q.screen.sm ? '250px' : '90vw',
+                }"
+              >
+                <q-img :src="product.image" style="height: 100%">
+                  <div
+                    class="absolute-bottom text-subtitle2 text-center bg-primary"
+                  >
+                    {{ product.title }}
+                  </div>
+                </q-img>
+              </q-card>
+            </div>
+          </div>
+        </div>
 
         <!-- quality section -->
         <div class="quality bg-grey-1">
@@ -521,7 +552,7 @@
         </div>
 
         <!-- footer -->
-        <div class="footer text-white">
+        <div class="footer bg-black text-white">
           <div
             class="q-pa-md container"
             :style="{
@@ -645,6 +676,55 @@ export default {
       { label: "Русский", value: "Ru", image: "./assets/ru.svg" },
     ]);
 
+    const products = ref([
+      {
+        id: 1,
+        title: "Product 1",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        image: "./assets/antrazit.jpg",
+      },
+      {
+        id: 2,
+        title: "Product 2",
+        description:
+          "Praesent non justo vel nunc ultricies vestibulum sed quis magna.",
+      },
+      {
+        id: 3,
+        title: "Product 3",
+        description: "Donec dictum ipsum non volutpat convallis.",
+      },
+      {
+        id: 4,
+        title: "Product 4",
+        description:
+          "Maecenas eu nisi velit. Etiam fermentum velit in urna bibendum.",
+      },
+      {
+        id: 5,
+        title: "Product 5",
+        description:
+          "Suspendisse potenti. Pellentesque non risus sit amet sapien blandit dignissim.",
+      },
+      {
+        id: 6,
+        title: "Product 6",
+        description:
+          "Aliquam erat volutpat. Sed eget libero quis ipsum ultrices sagittis.",
+      },
+      {
+        id: 7,
+        title: "Product 7",
+        description:
+          "Nullam vel turpis nec mauris tincidunt hendrerit eget in mauris.",
+      },
+      {
+        id: 8,
+        title: "Product 8",
+        description: "Fusce blandit tincidunt tellus eu eleifend.",
+      },
+    ]);
+
     function handleClick() {
       closeDrawer.value = !closeDrawer.value;
     }
@@ -693,6 +773,7 @@ export default {
       scrollPos,
       selectedImageIndex,
       laminatedProfiles,
+      products,
       selectedLaminatedProfiles,
       handleClick,
       scrollToDiv,

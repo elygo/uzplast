@@ -199,6 +199,11 @@ html {
   }
 }
 
+.products {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
 .colored {
   background-image: url("../assets/bg.png");
   background-size: contain;
@@ -207,9 +212,6 @@ html {
 .footer {
   height: 250px;
   width: 100vw;
-  background-image: url("../assets/footer.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
 
   .q-icon {
     transition: transform 0.3s ease;
@@ -231,5 +233,15 @@ html {
     100% {
       transform: scale(1);
     }
+  }
+}
+
+.customText {
+  .q-field__native {
+    color: white;
+  }
+
+  .q-icon {
+    color: white;
   }
 }
