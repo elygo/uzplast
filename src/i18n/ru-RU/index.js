@@ -52,4 +52,5 @@ export default {
   submitted: "Отправлено!",
   somethingwentwrong: "Ошибка, что-то пошло не так!",
   address: "г. Навои. ул. Инспекторлар, 257а",
+  rights: "Все права защищены",
 };

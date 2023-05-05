@@ -55,4 +55,5 @@ export default {
   submitted: "Submitted",
   somethingwentwrong: "Something went wrong",
   address: "Navoi city, Inspektorlar str. 257a",
+  rights: "All rights reserved",
 };

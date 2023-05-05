@@ -8,7 +8,7 @@ export default {
   products: "Mahsulotlar",
   contact: "Aloqa",
 
-  plastic: "Plastic",
+  plastic: "Plastik",
   profiles: "profillar",
   motto:
     "Bizning kompaniya deraza va eshiklar uchun yuqori sifatli PVX profillar ishlab chiqaruvchi bo'lib, keng assortimentimiz sizning maxsus ehtiyojlaringizni qondirish uchun mo'ljallangan.",
@@ -52,4 +52,5 @@ export default {
   submitted: "Yuborildi!",
   somethingwentwrong: "Xatolikka yo'l qo'yildi!",
   address: "Navoiy shahri, Inspektorlar ko`chasi, 257a",
+  rights: "Barcha huquqlar himoyalangan",
 };

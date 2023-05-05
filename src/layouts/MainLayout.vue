@@ -14,6 +14,7 @@
           <div v-if="$q.screen.xs || $q.screen.sm" class="red-bg"></div>
           <q-tabs
             v-model="tab"
+            no-caps
             shrink
             stretch
             v-if="!$q.screen.xs && !$q.screen.sm"
@@ -224,10 +225,7 @@
                   !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
               }"
             >
-              <span
-                >Products
-                <div class="products__title--border"></div
-              ></span>
+              Products
             </span>
             <div
               class="row wrap"
@@ -259,9 +257,9 @@
         </div>
 
         <!-- quality section -->
-        <div class="container">
+        <div class="bg-primary quality">
           <div
-            class="q-pa-md quality"
+            class="q-pa-md container"
             :style="{
               display: 'flex',
               flexDirection: 'column',
@@ -276,10 +274,7 @@
                   !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
               }"
             >
-              <span
-                >{{ $t("Quality") }}
-                <div class="quality__title--border"></div
-              ></span>
+              {{ $t("Quality") }}
             </span>
             <div
               :style="{
@@ -467,7 +462,7 @@
                   :style="{
                     borderTopLeftRadius: '25px',
                     borderBottomRightRadius: '25px',
-                    border: '1px solid #cf1c39',
+                    border: '1px solid #f11637',
                   }"
                 >
                   {{ $t("productioncontent") }}
@@ -479,7 +474,7 @@
                   :style="{
                     borderTopLeftRadius: '25px',
                     borderBottomRightRadius: '25px',
-                    border: '1px solid #cf1c39',
+                    border: '1px solid #f11637',
                   }"
                 >
                   {{ $t("measuringcontent") }}
@@ -491,7 +486,7 @@
                   :style="{
                     borderTopLeftRadius: '25px',
                     borderBottomRightRadius: '25px',
-                    border: '1px solid #cf1c39',
+                    border: '1px solid #f11637',
                   }"
                 >
                   {{ $t("deliverycontent") }}
@@ -507,7 +502,7 @@
                   :style="{
                     borderTopLeftRadius: '25px',
                     borderBottomRightRadius: '25px',
-                    border: '1px solid #cf1c39',
+                    border: '1px solid #f11637',
                   }"
                 >
                   {{ $t("installationworkcontent") }}
@@ -590,7 +585,7 @@
         </div>
 
         <!-- footer -->
-        <div class="footer bg-black text-white">
+        <div class="footer text-white">
           <div
             class="q-pa-md container"
             :style="{
@@ -612,7 +607,7 @@
                 height: '100%',
               }"
             >
-              © 2023 Uzplast. All Rights Reserved.
+              © 2023 Uzplast. {{ $t("rights") }}.
             </div>
             <div
               class="row items-center justify-center"
@@ -800,7 +795,7 @@ export default {
 
     return {
       thumbStyle: {
-        backgroundColor: "#cf1c39",
+        backgroundColor: "#f11637",
       },
       selectedLanguage,
       language,
