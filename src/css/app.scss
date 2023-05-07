@@ -17,21 +17,31 @@ html {
   right: 20px;
 }
 
-.q-timeline__dot {
-  margin: 0 10px;
-}
+.q-timeline {
+  &__dot {
+    margin: -8px 0px;
+  }
 
-.q-timeline__title {
-  margin-top: 8px;
-}
+  &__title {
+    margin-top: 8px;
+  }
 
-.q-timeline__subtitle {
-  display: none;
-}
+  &__subtitle {
+    display: none;
+  }
 
-.q-timeline__content {
-  padding-right: 10px;
-  margin-right: 10px;
+  &__content {
+    padding-right: 10px;
+    margin-right: 10px;
+  }
+
+  .content {
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $primary;
+  }
 }
 
 .q-parallax__media {
@@ -40,18 +50,6 @@ html {
 
 .q-drawer__opener {
   display: none;
-}
-
-.image-container {
-  position: relative;
-}
-
-.image-container > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .rounded-lamination-picker {
@@ -73,8 +71,8 @@ html {
     90deg,
     rgba(239, 239, 239, 1) 0%,
     rgba(243, 243, 243, 1) 65%,
-    rgba(241, 22, 55, 1) 65%,
-    rgba(241, 22, 55, 1) 100%
+    rgba(207, 28, 57, 1) 65%,
+    rgba(207, 28, 57, 1) 100%
   );
 }
 
@@ -92,7 +90,7 @@ html {
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: rgb(241, 22, 55);
+  background-color: $primary;
   border-top-left-radius: 82px;
   padding-left: 82px;
 
@@ -106,7 +104,7 @@ html {
 }
 
 .red-bg {
-  background-color: rgb(241, 22, 55);
+  background-color: $primary;
   width: 30vw;
   height: 100%;
 }
@@ -123,7 +121,6 @@ html {
     &-title {
       font-weight: 800;
       font-style: Bold;
-      font-size: 54px;
     }
 
     &-title:nth-child(2) {
@@ -140,7 +137,7 @@ html {
       padding-left: 0;
       font-weight: 600;
       font-style: italic;
-      font-size: 18px;
+      font-size: 16px;
       list-style: none;
       text-decoration: none;
 
@@ -216,20 +213,32 @@ html {
   display: flex;
 
   &__title {
-    font-size: 50px;
-    display: flex;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #000;
+    font-weight: 800;
+    font-style: Bold;
+  }
 
-    &--border {
-      height: 2px;
-      background: rgb(255, 255, 255);
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 1) 20%,
-        rgba(241, 22, 55, 1) 20%,
-        rgba(241, 22, 55, 1) 80%,
-        rgba(255, 255, 255, 1) 80%
-      );
+  .q-carousel__prev-arrow,
+  .q-carousel__next-arrow {
+    button {
+      color: $primary;
+      border-radius: 0;
+      width: 55px;
+      height: 50px;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .q-btn:hover {
+      background-color: $primary !important;
+      color: white;
+      cursor: pointer;
+      border-radius: 0;
+      width: 55px;
+      height: 50px;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
     }
   }
 }
@@ -239,34 +248,55 @@ html {
   width: 100%;
 
   &__title {
-    font-size: 50px;
-    display: flex;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #fff;
+    font-weight: 800;
+    font-style: Bold;
+  }
 
-    &--border {
-      height: 2px;
-      background: rgb(255, 255, 255);
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 1) 20%,
-        rgba(241, 22, 55, 1) 20%,
-        rgba(241, 22, 55, 1) 80%,
-        rgba(255, 255, 255, 1) 80%
-      );
+  .q-carousel__prev-arrow,
+  .q-carousel__next-arrow {
+    button {
+      border-radius: 0;
+      width: 55px;
+      height: 50px;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .q-btn:hover {
+      background-color: #fff !important;
+      color: $primary;
+      cursor: pointer;
+      border-radius: 0;
+      width: 55px;
+      height: 50px;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
     }
   }
 }
 
 .colored {
-  background-color: #393939;
+  background-color: #202020;
+
+  &__title {
+    font-weight: 800;
+    font-style: Bold;
+    color: #fff;
+    margin-top: 10px;
+  }
 }
 
 .services {
   margin: auto;
+
   &__title {
-    font-size: 50px;
     display: flex;
+    font-weight: 800;
+    font-style: Bold;
     margin-bottom: 20px;
+
     &--border {
       height: 2px;
       background: rgb(255, 255, 255);
@@ -284,7 +314,7 @@ html {
 .footer {
   height: 200px;
   width: 100vw;
-  background-color: #393939;
+  background-color: #202020;
   .q-icon {
     transition: transform 0.3s ease;
   }

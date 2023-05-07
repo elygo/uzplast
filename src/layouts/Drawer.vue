@@ -4,6 +4,7 @@
       <div>
         <q-btn
           class="q-mx-xs btn-drawer"
+          no-caps
           round
           outlined
           color="primary"
@@ -13,6 +14,7 @@
         >
         <q-btn
           class="q-mx-xs btn-drawer"
+          no-caps
           round
           outlined
           color="primary"
@@ -22,6 +24,7 @@
         >
         <q-btn
           class="q-mx-xs btn-drawer"
+          no-caps
           round
           outlined
           color="primary"
@@ -43,21 +46,41 @@
       </div>
     </div>
     <div class="column">
-      <q-btn flat @click="changeScrollAreaRef(0)" style="font-size: x-large">{{
-        $t("home")
-      }}</q-btn>
-      <q-btn flat @click="changeScrollAreaRef(1)" style="font-size: x-large">{{
-        $t("about")
-      }}</q-btn>
-      <q-btn flat @click="changeScrollAreaRef(2)" style="font-size: x-large">{{
-        $t("services")
-      }}</q-btn>
-      <q-btn flat @click="changeScrollAreaRef(3)" style="font-size: x-large">{{
-        $t("products")
-      }}</q-btn>
-      <q-btn flat @click="changeScrollAreaRef(4)" style="font-size: x-large">{{
-        $t("contact")
-      }}</q-btn>
+      <q-btn
+        no-caps
+        flat
+        @click="changeScrollAreaRef(0)"
+        style="font-size: x-large"
+        >{{ $t("home") }}</q-btn
+      >
+      <q-btn
+        no-caps
+        flat
+        @click="changeScrollAreaRef(1)"
+        style="font-size: x-large"
+        >{{ $t("about") }}</q-btn
+      >
+      <q-btn
+        no-caps
+        flat
+        @click="changeScrollAreaRef(2)"
+        style="font-size: x-large"
+        >{{ $t("services") }}</q-btn
+      >
+      <q-btn
+        no-caps
+        flat
+        @click="changeScrollAreaRef(3)"
+        style="font-size: x-large"
+        >{{ $t("products") }}</q-btn
+      >
+      <q-btn
+        no-caps
+        flat
+        @click="changeScrollAreaRef(4)"
+        style="font-size: x-large"
+        >{{ $t("contact") }}</q-btn
+      >
     </div>
   </q-drawer>
 </template>

@@ -127,10 +127,13 @@
                 !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
             }"
           >
-            <span class="home__text-title"
+            <span
+              class="home__text-title"
+              :style="{
+                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
+              }"
               >{{ $t("plastic") }}
               <span class="text-primary">{{ $t("profiles") }}</span>
-              <div class="home__text-title--border"></div>
             </span>
             <p v-if="!$q.screen.xs && !$q.screen.sm">
               {{ $t("motto") }}
@@ -212,46 +215,89 @@
         <!-- products section -->
         <div class="container">
           <div
-            class="q-pa-md products column"
+            class="q-pa-md products"
             :style="{
-              height:
-                !$q.screen.xs && !$q.screen.sm ? 'calc(100vh - 82px)' : '',
+              display: 'flex',
+              flexDirection: 'column',
+              height: 'calc(100vh - 82px)',
             }"
           >
             <span
               class="products__title"
               :style="{
-                justifyContent:
-                  !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
               }"
-            >
-              Products
+              >{{ $t("our") }}
+              <span class="text-primary">{{ $t("productss") }}</span>
             </span>
-            <div
-              class="row wrap"
-              :style="{
-                minHeight:
-                  !$q.screen.xs && !$q.screen.sm ? 'calc(100% - 150px)' : '',
-                justifyContent: !$q.screen.xs ? 'space-between' : 'center',
-                alignItems: !$q.screen.xs && !$q.screen.sm ? '' : '',
-              }"
-            >
-              <q-card
-                v-for="product in products"
-                :key="product.id"
-                class="q-mb-md"
+            <div class="q-pa-md" style="height: 100%; width: 100%">
+              <CarouselProducts
                 :style="{
-                  width: !$q.screen.xs ? '250px' : '90vw',
+                  height: '90%',
                 }"
+              />
+              <!-- <q-carousel
+                :interval="1000"
+                :autoplay="true"
+                v-model="slideProducts"
+                transition-prev="scale"
+                transition-next="scale"
+                control-type="outline"
+                swipeable
+                animated
+                arrows
+                infinite
+                height="calc(100% - 100px)"
+                class="bg-white text-black"
               >
-                <q-img :src="product.image" style="height: 100%">
-                  <div
-                    class="absolute-bottom text-subtitle2 text-center bg-primary"
-                  >
-                    {{ product.title }}
-                  </div>
-                </q-img>
-              </q-card>
+                <template v-slot:navigation-icon="{ active, onClick }">
+                  <q-btn
+                    v-if="active"
+                    size="xs"
+                    color="black"
+                    style="background-color: #black"
+                    flat
+                    round
+                    dense
+                    @click="onClick"
+                  />
+                  <q-btn
+                    v-else
+                    size="xs"
+                    color="black"
+                    outline
+                    round
+                    dense
+                    @click="onClick"
+                  />
+                </template>
+
+                <q-carousel-slide
+                  name="window"
+                  class="column no-wrap flex-center"
+                >
+                  <q-icon name="style" size="56px" />
+                  <div class="q-mt-md text-center">1</div>
+                </q-carousel-slide>
+                <q-carousel-slide name="tv" class="column no-wrap flex-center">
+                  <q-icon name="live_tv" size="56px" />
+                  <div class="q-mt-md text-center">2</div>
+                </q-carousel-slide>
+                <q-carousel-slide
+                  name="saad"
+                  class="column no-wrap flex-center"
+                >
+                  <q-icon name="style" size="56px" />
+                  <div class="q-mt-md text-center">3</div>
+                </q-carousel-slide>
+                <q-carousel-slide
+                  name="tsaadsv"
+                  class="column no-wrap flex-center"
+                >
+                  <q-icon name="live_tv" size="56px" />
+                  <div class="q-mt-md text-center">4</div>
+                </q-carousel-slide>
+              </q-carousel> -->
             </div>
           </div>
         </div>
@@ -267,157 +313,271 @@
               width: '100%',
             }"
           >
-            <span
+            <div
               class="quality__title"
               :style="{
+                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '24px',
                 justifyContent:
                   !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
               }"
             >
-              {{ $t("Quality") }}
-            </span>
-            <div
-              :style="{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: !$q.screen.xs ? 'row' : 'column',
-                height: 'calc(100vh - 150px)',
-              }"
-            >
-              <div
-                :style="{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
-                  height: !$q.screen.xs ? 'calc(90%)' : 'calc(50%)',
-                }"
+              {{ $t("qualityofproducts") }}
+            </div>
+            <div style="height: 100%; width: 100%">
+              <q-carousel
+                :interval="1000"
+                :autoplay="true"
+                v-model="slideQuality"
+                transition-prev="scale"
+                transition-next="scale"
+                control-type="outline"
+                swipeable
+                animated
+                navigation
+                arrows
+                infinite
+                height="calc(100%)"
+                class="bg-primary text-white"
               >
-                <img
-                  src="../assets/glass_in_summer.svg"
-                  alt="summer"
-                  :style="{
-                    width: !$q.screen.xs ? 'calc(60%)' : 'calc(50%)',
-                    height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
-                  }"
-                />
+                <template v-slot:navigation-icon="{ active, onClick }">
+                  <q-btn
+                    v-if="active"
+                    size="xs"
+                    color="white"
+                    style="background-color: #fff"
+                    flat
+                    round
+                    dense
+                    @click="onClick"
+                  />
+                  <q-btn
+                    v-else
+                    size="xs"
+                    color="white"
+                    outline
+                    round
+                    dense
+                    @click="onClick"
+                  />
+                </template>
 
-                <div class="col justify-center">
-                  <span
-                    class="text-weight-bold text-light-blue-6"
+                <q-carousel-slide
+                  name="style"
+                  class="column no-wrap flex-center"
+                >
+                  <div
                     :style="{
-                      fontSize:
-                        !$q.screen.xs && !$q.screen.sm ? '34px' : '24px',
-                      textAlign: 'center',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '100%',
+                      height: '100%',
                     }"
                   >
-                    SALQIN YOZ
-                  </span>
-                </div>
-                <div
-                  class="col justify-center"
-                  :style="{
-                    fontSize: !$q.screen.xs && !$q.screen.sm ? '24px' : '14px',
-                    textAlign: 'center',
-                  }"
-                >
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Facere, aliquid eligendi, blanditiis maiores explicabo
-                  repellendus neque tempore officia et
-                </div>
-              </div>
-              <div
-                :style="{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'space-evenly',
-                  width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
-                  height: !$q.screen.xs ? 'calc(90%)' : 'calc(50%)',
-                }"
-              >
-                <img
-                  src="../assets/glass_in_winter.svg"
-                  alt="winter"
-                  :style="{
-                    width: !$q.screen.xs ? 'calc(60%)' : 'calc(50%)',
-                    height: !$q.screen.xs ? 'calc(100%)' : 'calc(80%)',
-                  }"
-                />
-                <div class="col justify-center">
-                  <span
-                    class="text-weight-bold text-yellow-9"
+                    <div
+                      :style="{
+                        position: 'relative',
+                        width: !$q.screen.xs ? '' : '60%',
+                      }"
+                    >
+                      <div
+                        :style="{
+                          position: 'absolute',
+                          top: '-10px',
+                          right: !$q.screen.xs ? '-80px' : '-40px',
+                          backgroundColor: '#ffffff',
+                          color: '#F97B22',
+                          padding: !$q.screen.xs ? '10px 40px' : '10px 20px',
+                          fontSize: !$q.screen.xs ? '24px' : '16px',
+                          fontWeight: '700',
+                          borderTopLeftRadius: '25px',
+                          borderBottomRightRadius: '25px',
+                        }"
+                      >
+                        {{ $t("summer") }}
+                      </div>
+                      <div
+                        :style="{
+                          padding: '30px',
+                          borderTopLeftRadius: '25px',
+                          borderBottomRightRadius: '25px',
+                          border: '1px solid white',
+                          backgroundColor: '#F5F3C1',
+                        }"
+                      >
+                        <img
+                          src="../assets/glass_in_summer.svg"
+                          alt="summer"
+                          :style="{ width: '100%' }"
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      class="col justify-center"
+                      :style="{
+                        fontSize:
+                          !$q.screen.xs && !$q.screen.sm ? '18px' : '12px',
+                        textAlign: 'center',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }"
+                    >
+                      {{ $t("summercontent") }}
+                    </div>
+                  </div>
+                </q-carousel-slide>
+                <q-carousel-slide name="tv" class="column no-wrap flex-center">
+                  <div
                     :style="{
-                      fontSize:
-                        !$q.screen.xs && !$q.screen.sm ? '34px' : '24px',
-                      textAlign: 'center',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '100%',
+                      height: '100%',
                     }"
                   >
-                    ISSIQ QISH
-                  </span>
-                </div>
-                <div
-                  class="col justify-center align-center"
-                  :style="{
-                    fontSize: !$q.screen.xs && !$q.screen.sm ? '24px' : '14px',
-                    textAlign: 'center',
-                  }"
-                >
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Facere, aliquid eligendi, blanditiis maiores explicabo
-                  repellendus neque tempore officia
-                </div>
-              </div>
+                    <div
+                      :style="{
+                        position: 'relative',
+                        width: !$q.screen.xs ? '' : '60%',
+                      }"
+                    >
+                      <div
+                        :style="{
+                          position: 'absolute',
+                          top: '-10px',
+                          right: !$q.screen.xs ? '-80px' : '-40px',
+                          backgroundColor: '#ffffff',
+                          color: '#19A7CE',
+                          padding: !$q.screen.xs ? '10px 40px' : '10px 20px',
+                          fontSize: !$q.screen.xs ? '24px' : '16px',
+                          fontWeight: '700',
+                          borderTopLeftRadius: '25px',
+                          borderBottomRightRadius: '25px',
+                        }"
+                      >
+                        {{ $t("winter") }}
+                      </div>
+                      <div
+                        :style="{
+                          padding: '30px',
+                          borderTopLeftRadius: '25px',
+                          borderBottomRightRadius: '25px',
+                          border: '1px solid white',
+                          backgroundColor: '#B0DAFF',
+                        }"
+                      >
+                        <img
+                          src="../assets/glass_in_winter.svg"
+                          alt="winter"
+                          :style="{ width: '100%' }"
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      class="col justify-center"
+                      :style="{
+                        fontSize:
+                          !$q.screen.xs && !$q.screen.sm ? '18px' : '12px',
+                        textAlign: 'center',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }"
+                    >
+                      {{ $t("wintercontent") }}
+                    </div>
+                  </div>
+                </q-carousel-slide>
+              </q-carousel>
             </div>
           </div>
         </div>
 
         <!-- colored profiles section -->
         <div class="colored" style="height: calc(100vh - 82px)">
-          <div class="q-pa-md row container">
+          <div class="q-pa-md container" style="height: 100%">
             <div
+              class="colored__title"
               :style="{
-                width: !$q.screen.xs ? '40%' : '100%',
-                height: !$q.screen.xs ? '600px' : '200px',
+                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
+                justifyContent:
+                  !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
               }"
-              class="row justify-center items-center"
             >
-              <div
-                class="q-ma-md text-center"
-                v-for="(image, index) in laminatedProfiles"
-                :key="index"
-              >
-                <div
-                  class="rounded-lamination-picker shadow-2 q-pa-md"
-                  :style="{
-                    height: '60px',
-                    width: '60px',
-                    backgroundImage: 'url(' + image.lamination + ')',
-                    cursor: 'pointer',
-                  }"
-                  @click="selectedImageIndex = index"
-                ></div>
-
-                <div class="text q-mt-md">
-                  {{ image.alt }}
-                </div>
-              </div>
+              {{ $t("choosecolor") }}
             </div>
             <div
-              class="image-container row q-mx-auto q-my-auto"
+              class="row"
               :style="{
-                width: !$q.screen.xs ? '600px' : '90vw',
-                height: !$q.screen.xs ? '400px' : '60vw',
+                height: '90%',
+                justifyContent: 'center',
+                alignItems: 'center',
               }"
             >
-              <img
-                v-for="(image, index) in selectedLaminatedProfiles"
-                :key="index"
-                :src="image.src"
-                :alt="image.alt"
-              />
+              <div
+                class=""
+                :style="{
+                  width: !$q.screen.xs ? '600px' : '90vw',
+                  backgroundColor: 'white',
+                  padding: '20px',
+                  border: '1px solid white',
+                  borderTopLeftRadius: '25px',
+                  borderBottomRightRadius: '25px',
+                }"
+              >
+                <img
+                  :style="{
+                    width: '100%',
+                  }"
+                  v-for="(image, index) in selectedLaminatedProfiles"
+                  :key="index"
+                  :src="image.src"
+                  :alt="image.text"
+                />
+              </div>
+              <div
+                class="row justify-center items-center"
+                :style="{
+                  flex: 'auto',
+                  gap: '30px',
+                }"
+              >
+                <div
+                  class="text-center"
+                  v-for="(image, index) in laminatedProfiles"
+                  :key="index"
+                  :style="{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '10px',
+                  }"
+                >
+                  <div
+                    class="rounded-lamination-picker shadow-2 q-pa-md"
+                    :style="{
+                      height: !$q.screen.xs ? '60px' : '40px',
+                      width: !$q.screen.xs ? '60px' : '40px',
+                      backgroundImage: 'url(' + image.lamination + ')',
+                      backgroundColor: 'white',
+                      cursor: 'pointer',
+                      border: '1px solid white',
+                    }"
+                    @click="selectedImageIndex = index"
+                  ></div>
+
+                  <div class="text-white q-mt-md">
+                    {{ $t(image.text) }}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -432,7 +592,7 @@
         <!-- services section -->
         <div class="container">
           <div
-            class="services"
+            class="q-pa-md services"
             :style="{
               minHeight: 'calc(100vh - 82px)',
               width:
@@ -442,14 +602,11 @@
             <span
               class="services__title"
               :style="{
-                justifyContent:
-                  !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
               }"
             >
-              <span>
-                {{ $t("ourservices") }}
-                <div class="services__title--border"></div>
-              </span>
+              {{ $t("our") }}
+              <span class="text-primary">&nbsp;{{ $t("servicess") }}</span>
             </span>
             <q-timeline class="" color="primary">
               <q-timeline-entry
@@ -457,38 +614,17 @@
                 icon="warehouse"
                 color="primary"
               >
-                <div
-                  class="bg-grey-1 q-pa-sm"
-                  :style="{
-                    borderTopLeftRadius: '25px',
-                    borderBottomRightRadius: '25px',
-                    border: '1px solid #f11637',
-                  }"
-                >
+                <div class="bg-grey-1 q-pa-sm content">
                   {{ $t("productioncontent") }}
                 </div>
               </q-timeline-entry>
               <q-timeline-entry :title="$t('measuring')" icon="design_services">
-                <div
-                  class="bg-grey-1 q-pa-sm"
-                  :style="{
-                    borderTopLeftRadius: '25px',
-                    borderBottomRightRadius: '25px',
-                    border: '1px solid #f11637',
-                  }"
-                >
+                <div class="bg-grey-1 q-pa-sm content">
                   {{ $t("measuringcontent") }}
                 </div>
               </q-timeline-entry>
               <q-timeline-entry :title="$t('delivery')" icon="local_shipping">
-                <div
-                  class="bg-grey-1 q-pa-sm"
-                  :style="{
-                    borderTopLeftRadius: '25px',
-                    borderBottomRightRadius: '25px',
-                    border: '1px solid #f11637',
-                  }"
-                >
+                <div class="bg-grey-1 q-pa-sm content">
                   {{ $t("deliverycontent") }}
                 </div>
               </q-timeline-entry>
@@ -497,14 +633,7 @@
                 :title="$t('installationwork')"
                 icon="construction"
               >
-                <div
-                  class="bg-grey-1 q-pa-sm"
-                  :style="{
-                    borderTopLeftRadius: '25px',
-                    borderBottomRightRadius: '25px',
-                    border: '1px solid #f11637',
-                  }"
-                >
+                <div class="bg-grey-1 q-pa-sm content">
                   {{ $t("installationworkcontent") }}
                 </div>
               </q-timeline-entry>
@@ -513,14 +642,7 @@
                 color="green"
                 icon="done_all"
               >
-                <div
-                  class="bg-grey-1 q-pa-sm"
-                  :style="{
-                    borderTopLeftRadius: '25px',
-                    borderBottomRightRadius: '25px',
-                    border: '1px solid green',
-                  }"
-                >
+                <div class="bg-grey-1 q-pa-sm content">
                   {{ $t("guaranteedservicecontent") }}
                 </div>
               </q-timeline-entry>
@@ -530,7 +652,7 @@
 
         <!-- contact section -->
         <div
-          class=""
+          class="shadow-2"
           :style="{
             display: 'flex',
             flexDirection: !$q.screen.xs ? 'row' : 'column',
@@ -547,21 +669,21 @@
             <MapLocation />
           </div>
           <div
-            class="bg-primary q-pa-lg"
+            class="q-pa-md"
             :style="{
               width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
               height: 'calc(100%)',
             }"
           >
-            <p class="text-white" style="font-size: 26px; font-weight: 600">
+            <p class="text-black" style="font-size: 26px; font-weight: 600">
               {{ $t("contact") }}
             </p>
-            <div class="text-white" style="font-size: 18px">
+            <div class="text-black" style="font-size: 18px">
               <q-icon name="phone" class="q-mr-md" /><a
                 style="
                   font-size: 18px;
                   text-decoration: none !important;
-                  color: white;
+                  color: black;
                 "
                 href="tel:+99895019000"
                 >(+998) 91 501-90-00</a
@@ -572,14 +694,14 @@
                 style="
                   font-size: 18px;
                   text-decoration: none !important;
-                  color: white;
+                  color: black;
                 "
                 href="mailto:info@uzplast.com"
                 >info@uzplast.com</a
               >
             </div>
-            <div class="text-white q-my-lg" style="font-size: 18px">
-              <q-icon name="location_on" /> {{ $t("address") }}
+            <div class="text-black" style="font-size: 18px">
+              <q-icon name="location_on" class="q-mr-md" />{{ $t("address") }}
             </div>
           </div>
         </div>
@@ -655,12 +777,18 @@ import { ref, computed } from "vue";
 import DrawerRight from "./Drawer.vue";
 import MapLocation from "../components/MapLocation.vue";
 import PartnerRequestForm from "src/components/PartnerRequestForm.vue";
+import CarouselProducts from "src/components/CarouselProducts.vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import { useQuasar } from "quasar";
 
 export default {
-  components: { DrawerRight, MapLocation, PartnerRequestForm },
+  components: {
+    DrawerRight,
+    MapLocation,
+    PartnerRequestForm,
+    CarouselProducts,
+  },
   setup() {
     const $q = useQuasar();
     const tab = ref("Homepage");
@@ -669,25 +797,28 @@ export default {
     const scrollAreaRef = ref(null);
     const scrollPos = ref(0);
     const selectedImageIndex = ref(0);
+    const slideProducts = ref("window");
+    const slideQuality = ref("style");
+
     const laminatedProfiles = ref([
       {
         src: "./assets/window_white.jpg",
-        alt: "White",
+        text: "white",
         lamination: "",
       },
       {
         src: "./assets/window_antrazit.jpg",
-        alt: "Anthracite",
+        text: "anthracite",
         lamination: "./assets/antrazit.jpg",
       },
       {
         src: "./assets/window_dub.jpg",
-        alt: "Oak",
+        text: "oak",
         lamination: "./assets/dub.jpg",
       },
       {
         src: "./assets/light-oak.jpg",
-        alt: "Natural Oak",
+        text: "naturaloak",
         lamination: "./assets/natural_dub.jpg",
       },
     ]);
@@ -707,55 +838,6 @@ export default {
       { label: "O`zbekcha", value: "Uz", image: "./assets/uz.svg" },
       { label: "English", value: "En", image: "./assets/gb.svg" },
       { label: "Русский", value: "Ru", image: "./assets/ru.svg" },
-    ]);
-
-    const products = ref([
-      {
-        id: 1,
-        title: "Product 1",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        image: "./assets/antrazit.jpg",
-      },
-      {
-        id: 2,
-        title: "Product 2",
-        description:
-          "Praesent non justo vel nunc ultricies vestibulum sed quis magna.",
-      },
-      {
-        id: 3,
-        title: "Product 3",
-        description: "Donec dictum ipsum non volutpat convallis.",
-      },
-      {
-        id: 4,
-        title: "Product 4",
-        description:
-          "Maecenas eu nisi velit. Etiam fermentum velit in urna bibendum.",
-      },
-      {
-        id: 5,
-        title: "Product 5",
-        description:
-          "Suspendisse potenti. Pellentesque non risus sit amet sapien blandit dignissim.",
-      },
-      {
-        id: 6,
-        title: "Product 6",
-        description:
-          "Aliquam erat volutpat. Sed eget libero quis ipsum ultrices sagittis.",
-      },
-      {
-        id: 7,
-        title: "Product 7",
-        description:
-          "Nullam vel turpis nec mauris tincidunt hendrerit eget in mauris.",
-      },
-      {
-        id: 8,
-        title: "Product 8",
-        description: "Fusce blandit tincidunt tellus eu eleifend.",
-      },
     ]);
 
     function handleClick() {
@@ -806,8 +888,9 @@ export default {
       scrollPos,
       selectedImageIndex,
       laminatedProfiles,
-      products,
       selectedLaminatedProfiles,
+      slideQuality,
+      slideProducts,
       handleClick,
       scrollToDiv,
       handleChangeLang,

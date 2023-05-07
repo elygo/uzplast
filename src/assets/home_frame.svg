@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="536" height="424" viewBox="0 0 536 424">
   <g id="Сгруппировать_355" data-name="Сгруппировать 355" transform="translate(-1051 -341)">
-    <path id="Прямоугольник_2197" data-name="Прямоугольник 2197" d="M120,0H494a0,0,0,0,1,0,0V271A120,120,0,0,1,374,391H0a0,0,0,0,1,0,0V120A120,120,0,0,1,120,0Z" transform="translate(1051 341)" fill="#f11637"/>
-    <g id="Прямоугольник_2191" data-name="Прямоугольник 2191" transform="translate(1057 346)" fill="#fff" stroke="#f11637" stroke-width="2">
+    <path id="Прямоугольник_2197" data-name="Прямоугольник 2197" d="M120,0H494a0,0,0,0,1,0,0V271A120,120,0,0,1,374,391H0a0,0,0,0,1,0,0V120A120,120,0,0,1,120,0Z" transform="translate(1051 341)" fill="#cf1c39"/>
+    <g id="Прямоугольник_2191" data-name="Прямоугольник 2191" transform="translate(1057 346)" fill="#fff" stroke="#cf1c39" stroke-width="2">
       <path d="M120,0H530a0,0,0,0,1,0,0V299A120,120,0,0,1,410,419H0a0,0,0,0,1,0,0V120A120,120,0,0,1,120,0Z" stroke="none"/>
       <path d="M120,1H529a0,0,0,0,1,0,0V299A119,119,0,0,1,410,418H1a0,0,0,0,1,0,0V120A119,119,0,0,1,120,1Z" fill="none"/>
     </g>
