@@ -1,5 +1,10 @@
 <template>
-  <Carousel :autoplay="2000" v-bind="settings" :breakpoints="breakpoints">
+  <Carousel
+    :autoplay="2000"
+    :wrap-around="true"
+    v-bind="settings"
+    :breakpoints="breakpoints"
+  >
     <Slide v-for="product in products" :key="product">
       <div></div>
       <div class="carousel__item">{{ product.title }}</div>
