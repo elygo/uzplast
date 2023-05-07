@@ -37,7 +37,21 @@ export default {
   guaranteedservice: "Kafolatli xizmat",
   guaranteedservicecontent:
     "Biz mahsulot va xizmatlarimiz sifati ortida turibmiz va biz barcha PVX profillar, deraza va eshiklarimizga kafolat beramiz. Bizning maqsadimiz sizning ishonchingizni oqlab, mahsulotlarimiz sifati va a'lo xizmat ko'rsatish orqali tashvishsiz yechim taqdim etishdir.",
-
+  our: "Bizning",
+  productss: "mahsulotlar",
+  servicess: "xizmatlar",
+  qualityofproducts: "Mahsulotlarmizning sifati",
+  summer: "Yoz",
+  winter: "Qish",
+  summercontent:
+    "Uzplast kompaniyasining yuqori sifatli PVX profillaridan tayyorlangan derazalar issiq yoz oylarida ajoyib izolyatsiyani ta'minlaydi, bu sizning uyingizni salqin va qulay saqlashga yordam beradi. Bundan tashqari, bizning profillarimiz o'lkamizning jazirama yoziga bardosh berib, ular yillar davomida uzoq xizmat qiladi.",
+  wintercontent:
+    "Bizning profillardan ishlab chiqarilgan PVX deraza va eshiklari qishda uyingizni izolyatsiya qilish, uni issiq va qulay saqlash, shuningdek, isitish xarajatlarini tejashda yuqori samaradorlikka ega. Bizning profillarimiz eng qiyin qishki ob-havoga ham bardosh berish uchun maxsus ishlab chiqilgan bo'lib, ular optimal haroratni va kelgusi yillar davomida ishonchli issiqlik izolatsiyasini ta'minlaydi.",
+  choosecolor: "Mos ranglarni tanlang",
+  oak: "Eman",
+  naturaloak: "Tabiiy eman",
+  anthracite: "Antratsit",
+  white: "Oq",
   typesomething: "Iltimos to'ldiring",
   yourname: "Sizning ismingiz",
   namesurname: "Ismingiz va familiyangiz",

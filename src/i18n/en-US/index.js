@@ -40,7 +40,21 @@ export default {
   guaranteedservice: "Guaranteed service",
   guaranteedservicecontent:
     "We stand behind the quality of our products and services at UzPlast, and we offer a guarantee on all our PVC profiles, windows, and doors. Our goal is to provide you with a worry-free experience, knowing that you can trust in the quality of our products and our commitment to excellent service.",
-
+  our: "Our",
+  productss: "products",
+  servicess: "services",
+  qualityofproducts: "Quality of our products",
+  summer: "Summer",
+  winter: "Winter",
+  summercontent:
+    "Windows, made from Uzplast's high-quality PVC profiles, offer excellent insulation during the hot summer months, helping to keep your home cool and comfortable. Additionally, our profiles are designed to withstand the harsh elements of summer, ensuring they continue to perform optimally for years to come.",
+  wintercontent:
+    "Windows, made from Uzplast's high-quality PVC profiles, are highly effective in insulating your home during the winter, keeping it warm and cozy while also saving you money on heating costs. Our profiles are specifically designed to withstand even the toughest winter weather, ensuring they continue to perform optimally and provide reliable thermal insulation for years to come.",
+  choosecolor: "Choose suitable colors",
+  oak: "Oak",
+  naturaloak: "Natural Oak",
+  anthracite: "Anthracite",
+  white: "White",
   typesomething: "Please type something",
   yourname: "Your name",
   namesurname: "Name and surname",
