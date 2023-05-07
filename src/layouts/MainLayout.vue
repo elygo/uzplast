@@ -833,10 +833,15 @@ export default {
 
     const { t, locale } = useI18n({ useScope: "global" });
 
-    const selectedLanguage = ref({ selected: "Uz", icon: "./assets/uz.svg" });
+    const selectedLanguage = ref({
+      selected: localStorage.getItem("locale") ?? "Uz",
+      icon: `./assets/${
+        localStorage.getItem("locale")?.toLowerCase() ?? "uz"
+      }.svg`,
+    });
     const language = ref([
       { label: "O`zbekcha", value: "Uz", image: "./assets/uz.svg" },
-      { label: "English", value: "En", image: "./assets/gb.svg" },
+      { label: "English", value: "En", image: "./assets/en.svg" },
       { label: "Русский", value: "Ru", image: "./assets/ru.svg" },
     ]);
 
@@ -854,6 +859,7 @@ export default {
 
     function handleChangeLang(newValue) {
       locale.value = newValue.value;
+      localStorage.setItem("locale", locale.value);
     }
 
     function handleOptionClick(selectedVal, icon) {

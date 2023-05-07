@@ -124,6 +124,7 @@ export default {
 
     function handleChangeLang(lang) {
       locale.value = lang;
+      localStorage.setItem("locale", locale.value);
     }
 
     function changeScrollAreaRef(height) {
