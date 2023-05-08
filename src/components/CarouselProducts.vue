@@ -1,13 +1,14 @@
 <template>
   <Carousel
-    :autoplay="2000"
+    :autoplay="3000"
     :wrap-around="true"
     v-bind="settings"
     :breakpoints="breakpoints"
   >
     <Slide v-for="product in products" :key="product">
-      <div></div>
-      <div class="carousel__item">{{ product.title }}</div>
+      <div>
+        <div class="carousel__item">{{ product.title }}</div>
+      </div>
     </Slide>
 
     <template #addons>
@@ -107,6 +108,19 @@ export default defineComponent({
 .carousel * {
   box-sizing: unset;
 }
+
+.carousel__item {
+  height: 80%;
+  width: 100%;
+  background-color: var(--vc-clr-primary);
+  color: var(--vc-clr-white);
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .carousel__icon {
   height: 28px;
   width: 28px;

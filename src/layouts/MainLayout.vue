@@ -230,74 +230,14 @@
               >{{ $t("our") }}
               <span class="text-primary">{{ $t("productss") }}</span>
             </span>
-            <div class="q-pa-md" style="height: 100%; width: 100%">
-              <CarouselProducts
-                :style="{
-                  height: '90%',
-                }"
-              />
-              <!-- <q-carousel
-                :interval="1000"
-                :autoplay="true"
-                v-model="slideProducts"
-                transition-prev="scale"
-                transition-next="scale"
-                control-type="outline"
-                swipeable
-                animated
-                arrows
-                infinite
-                height="calc(100% - 100px)"
-                class="bg-white text-black"
-              >
-                <template v-slot:navigation-icon="{ active, onClick }">
-                  <q-btn
-                    v-if="active"
-                    size="xs"
-                    color="black"
-                    style="background-color: #black"
-                    flat
-                    round
-                    dense
-                    @click="onClick"
-                  />
-                  <q-btn
-                    v-else
-                    size="xs"
-                    color="black"
-                    outline
-                    round
-                    dense
-                    @click="onClick"
-                  />
-                </template>
-
-                <q-carousel-slide
-                  name="window"
-                  class="column no-wrap flex-center"
-                >
-                  <q-icon name="style" size="56px" />
-                  <div class="q-mt-md text-center">1</div>
-                </q-carousel-slide>
-                <q-carousel-slide name="tv" class="column no-wrap flex-center">
-                  <q-icon name="live_tv" size="56px" />
-                  <div class="q-mt-md text-center">2</div>
-                </q-carousel-slide>
-                <q-carousel-slide
-                  name="saad"
-                  class="column no-wrap flex-center"
-                >
-                  <q-icon name="style" size="56px" />
-                  <div class="q-mt-md text-center">3</div>
-                </q-carousel-slide>
-                <q-carousel-slide
-                  name="tsaadsv"
-                  class="column no-wrap flex-center"
-                >
-                  <q-icon name="live_tv" size="56px" />
-                  <div class="q-mt-md text-center">4</div>
-                </q-carousel-slide>
-              </q-carousel> -->
+            <div
+              class="q-pa-md"
+              :style="{
+                height: '100%',
+                width: '100%',
+              }"
+            >
+              <CarouselProducts />
             </div>
           </div>
         </div>
