@@ -28,21 +28,30 @@
                 handleChangePage('/');
               "
             />
-            <q-tab name="About" :label="$t('about')" @click="scrollToDiv(1)" />
-            <q-tab
-              name="Services"
-              :label="$t('services')"
-              @click="scrollToDiv(2)"
-            />
             <q-tab
               name="Products"
               :label="$t('products')"
+              @click="scrollToDiv(1)"
+            />
+            <q-tab
+              name="Quality"
+              :label="$t('quality')"
+              @click="scrollToDiv(2)"
+            />
+            <q-tab
+              name="Options"
+              :label="$t('wideoptions')"
               @click="scrollToDiv(3)"
+            />
+            <q-tab
+              name="Services"
+              :label="$t('services')"
+              @click="scrollToDiv(4)"
             />
             <q-tab
               name="Contact"
               :label="$t('contact')"
-              @click="scrollToDiv(4)"
+              @click="scrollToDiv(5)"
             />
             <q-space />
           </q-tabs>

@@ -58,26 +58,33 @@
         flat
         @click="changeScrollAreaRef(1)"
         style="font-size: x-large"
-        >{{ $t("about") }}</q-btn
+        >{{ $t("products") }}</q-btn
       >
       <q-btn
         no-caps
         flat
         @click="changeScrollAreaRef(2)"
         style="font-size: x-large"
-        >{{ $t("services") }}</q-btn
+        >{{ $t("quality") }}</q-btn
       >
       <q-btn
         no-caps
         flat
         @click="changeScrollAreaRef(3)"
         style="font-size: x-large"
-        >{{ $t("products") }}</q-btn
+        >{{ $t("wideoptions") }}</q-btn
       >
       <q-btn
         no-caps
         flat
         @click="changeScrollAreaRef(4)"
+        style="font-size: x-large"
+        >{{ $t("services") }}</q-btn
+      >
+      <q-btn
+        no-caps
+        flat
+        @click="changeScrollAreaRef(5)"
         style="font-size: x-large"
         >{{ $t("contact") }}</q-btn
       >

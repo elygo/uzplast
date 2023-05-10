@@ -4,6 +4,8 @@ export default {
   home: "Главная",
   about: "О нас",
   info: "Информация",
+  quality: "Качество",
+  wideoptions: "Широкий выбор",
   services: "Услуги",
   products: "Продукты",
   contact: "Контакт",

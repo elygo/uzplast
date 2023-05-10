@@ -4,6 +4,8 @@ export default {
   home: "Bosh sahifa",
   about: "Biz haqimizda",
   info: "Ma`lumot",
+  quality: "Sifat",
+  wideoptions: "Keng tanlov",
   services: "Xizmatlar",
   products: "Mahsulotlar",
   contact: "Aloqa",

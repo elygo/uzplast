@@ -7,6 +7,8 @@ export default {
   home: "Home",
   about: "About us",
   info: "Information",
+  quality: "Quality",
+  wideoptions: "Wide options",
   services: "Services",
   products: "Products",
   contact: "Contact",
