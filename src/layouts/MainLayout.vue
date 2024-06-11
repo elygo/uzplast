@@ -28,30 +28,30 @@
                 handleChangePage('/');
               "
             />
-            <q-tab
+            <!-- <q-tab
               name="Products"
               :label="$t('products')"
               @click="scrollToDiv(1)"
-            />
+            /> -->
             <q-tab
               name="Quality"
               :label="$t('quality')"
-              @click="scrollToDiv(2)"
+              @click="scrollToDiv(1)"
             />
             <q-tab
               name="Options"
               :label="$t('wideoptions')"
-              @click="scrollToDiv(3)"
+              @click="scrollToDiv(2)"
             />
             <q-tab
               name="Services"
               :label="$t('services')"
-              @click="scrollToDiv(4)"
+              @click="scrollToDiv(3)"
             />
             <q-tab
               name="Contact"
               :label="$t('contact')"
-              @click="scrollToDiv(5)"
+              @click="scrollToDiv(4)"
             />
             <q-space />
           </q-tabs>
@@ -222,7 +222,7 @@
         </div>
 
         <!-- products section -->
-        <div class="container">
+        <!-- <div class="container">
           <div
             class="q-pa-md products"
             :style="{
@@ -249,7 +249,7 @@
               <CarouselProducts />
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- quality section -->
         <div class="bg-primary quality">
@@ -726,7 +726,7 @@ import { ref, computed } from "vue";
 import DrawerRight from "./Drawer.vue";
 import MapLocation from "../components/MapLocation.vue";
 import PartnerRequestForm from "src/components/PartnerRequestForm.vue";
-import CarouselProducts from "src/components/CarouselProducts.vue";
+// import CarouselProducts from "src/components/CarouselProducts.vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import { useQuasar } from "quasar";
@@ -736,7 +736,7 @@ export default {
     DrawerRight,
     MapLocation,
     PartnerRequestForm,
-    CarouselProducts,
+    // CarouselProducts,
   },
   setup() {
     const $q = useQuasar();
