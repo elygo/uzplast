@@ -1,6 +1,6 @@
 # uzplast (uzplast)
 
-web app for a company
+Uzplast - pvc window profile manufacturing company. Производство оконных ПВХ профилей. Derazalar uchun PVX profillar ishlab chiqarish.
 
 ## Install the dependencies
 ```bash

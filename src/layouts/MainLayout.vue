@@ -2,80 +2,36 @@
   <q-layout view="hHr lpR ffr">
     <div class="header-container">
       <q-toolbar class="q-my text-white">
-        <img
-          src="../assets/logo_uzplast.svg"
-          alt="Uzplast logo"
-          v-bind:width="120"
-          @click="handleChangePage('/')"
-          style="cursor: pointer"
-        />
+        <img src="../assets/logo_uzplast.svg" alt="Uzplast logo" v-bind:width="120" @click="handleChangePage('/')"
+          style="cursor: pointer" />
         <q-space />
         <div class="tabs-container">
           <div v-if="$q.screen.xs || $q.screen.sm" class="red-bg"></div>
-          <q-tabs
-            v-model="tab"
-            no-caps
-            shrink
-            stretch
-            v-if="!$q.screen.xs && !$q.screen.sm"
-            active-color="white"
-          >
-            <q-tab
-              name="Homepage"
-              :label="$t('home')"
-              @click="
-                scrollToDiv(0);
-                handleChangePage('/');
-              "
-            />
+          <q-tabs v-model="tab" no-caps shrink stretch v-if="!$q.screen.xs && !$q.screen.sm" active-color="white">
+            <q-tab name="Homepage" :label="$t('home')" @click="
+              scrollToDiv(0);
+            handleChangePage('/');
+            " />
             <!-- <q-tab
               name="Products"
               :label="$t('products')"
               @click="scrollToDiv(1)"
             /> -->
-            <q-tab
-              name="Quality"
-              :label="$t('quality')"
-              @click="scrollToDiv(1)"
-            />
-            <q-tab
-              name="Options"
-              :label="$t('wideoptions')"
-              @click="scrollToDiv(2)"
-            />
-            <q-tab
-              name="Services"
-              :label="$t('services')"
-              @click="scrollToDiv(3)"
-            />
-            <q-tab
-              name="Contact"
-              :label="$t('contact')"
-              @click="scrollToDiv(4)"
-            />
+            <q-tab name="Quality" :label="$t('quality')" @click="scrollToDiv(1)" />
+            <q-tab name="Options" :label="$t('wideoptions')" @click="scrollToDiv(2)" />
+            <q-tab name="Services" :label="$t('services')" @click="scrollToDiv(3)" />
+            <q-tab name="Contact" :label="$t('contact')" @click="scrollToDiv(4)" />
             <q-space />
           </q-tabs>
         </div>
 
         <q-space />
         <div class="row text-white">
-          <q-select
-            class="customText"
-            borderless
-            color="primary"
-            label-color="white"
-            v-if="!$q.screen.xs && !$q.screen.sm"
-            v-model="selectedLanguage.selected"
-            :options="language"
-            @update:model-value="handleChangeLang"
-          >
+          <q-select class="customText" borderless color="primary" label-color="white"
+            v-if="!$q.screen.xs && !$q.screen.sm" v-model="selectedLanguage.selected" :options="language"
+            @update:model-value="handleChangeLang">
             <template v-slot:option="{ itemProps, opt, index }">
-              <q-item
-                :key="index"
-                v-ripple
-                v-bind="itemProps"
-                @click="handleOptionClick(opt.value, opt.image)"
-              >
+              <q-item :key="index" v-ripple v-bind="itemProps" @click="handleOptionClick(opt.value, opt.image)">
                 <q-item-section avatar>
                   <img :src="opt.image" />
                 </q-item-section>
@@ -83,140 +39,75 @@
               </q-item>
             </template>
           </q-select>
-          <img
-            class="q-mx-sm"
-            :src="selectedLanguage.icon"
-            alt=""
-            v-if="!$q.screen.xs && !$q.screen.sm"
-            style="
+          <img class="q-mx-sm" :src="selectedLanguage.icon" alt="" v-if="!$q.screen.xs && !$q.screen.sm" style="
                {
                 height: 20px;
                 width: 25px;
               }
-            "
-          />
+            " />
         </div>
         <q-space v-if="$q.screen.xs" />
 
-        <DrawerRight
-          :rightDrawerOpen="closeDrawer"
-          :scrollAreaRefDrawer="scrollAreaRef"
-          @close="(x) => (this.closeDrawer = x.closeDrawer)"
-        />
-        <q-btn
-          v-if="$q.screen.xs || $q.screen.sm"
-          dense
-          flat
-          round
-          icon="menu"
-          @click="handleClick"
-        />
+        <DrawerRight :rightDrawerOpen="closeDrawer" :scrollAreaRefDrawer="scrollAreaRef"
+          @close="(x) => (this.closeDrawer = x.closeDrawer)" />
+        <q-btn v-if="$q.screen.xs || $q.screen.sm" dense flat round icon="menu" @click="handleClick" />
       </q-toolbar>
     </div>
 
     <q-page-container>
       <router-view />
-      <q-scroll-area
-        :thumb-style="thumbStyle"
-        ref="scrollAreaRef"
-        style="height: calc(100vh - 82px); max-width: 100vw"
-        @scroll="setPositionOnScroll"
-      >
+      <q-scroll-area :thumb-style="thumbStyle" ref="scrollAreaRef" style="height: calc(100vh - 82px); max-width: 100vw"
+        @scroll="setPositionOnScroll">
         <!-- home section -->
         <div class="q-pa-md home container" style="height: calc(100vh - 82px)">
-          <div
-            class="home__text"
-            :style="{
-              width: !$q.screen.xs && !$q.screen.sm ? '50%' : '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              gap: !$q.screen.xs && !$q.screen.sm ? '25px' : '',
-              alignItems:
-                !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
-            }"
-          >
-            <span
-              class="home__text-title"
-              :style="{
-                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
-              }"
-              >{{ $t("plastic") }}
+          <div class="home__text" :style="{
+            width: !$q.screen.xs && !$q.screen.sm ? '50%' : '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            gap: !$q.screen.xs && !$q.screen.sm ? '10px' : '',
+            alignItems:
+              !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+          }">
+            <h1 class="home__text-title" :style="{
+              fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
+            }">{{ $t("plastic") }}
               <span class="text-primary">{{ $t("profiles") }}</span>
-            </span>
+            </h1>
             <p v-if="!$q.screen.xs && !$q.screen.sm">
               {{ $t("motto") }}
             </p>
             <ul class="home__text-list">
               <li>
-                <q-icon
-                  size="1.5rem"
-                  name="check_circle"
-                  color="primary"
-                  class="q-mr-md"
-                />{{ $t("qualityprice") }}
+                <q-icon size="1.5rem" name="check_circle" color="primary" class="q-mr-md" />{{ $t("qualityprice") }}
               </li>
               <li>
-                <q-icon
-                  size="1.5rem"
-                  name="check_circle"
-                  color="primary"
-                  class="q-mr-md"
-                />{{ $t("coloredprofiles") }}
+                <q-icon size="1.5rem" name="check_circle" color="primary" class="q-mr-md" />{{ $t("coloredprofiles") }}
+              </li>
+              <!-- <li>
+                <q-icon size="1.5rem" name="check_circle" color="primary" class="q-mr-md" />{{ $t("warranty") }}
+              </li> -->
+              <li>
+                <q-icon size="1.5rem" name="check_circle" color="primary" class="q-mr-md" />{{ $t("individualwork") }}
               </li>
               <li>
-                <q-icon
-                  size="1.5rem"
-                  name="check_circle"
-                  color="primary"
-                  class="q-mr-md"
-                />{{ $t("warranty") }}
+                <q-icon size="1.5rem" name="check_circle" color="primary" class="q-mr-md" />{{ $t("freedelivery") }}
               </li>
               <li>
-                <q-icon
-                  size="1.5rem"
-                  name="check_circle"
-                  color="primary"
-                  class="q-mr-md"
-                />{{ $t("individualwork") }}
+                <q-icon size="1.5rem" name="check_circle" color="primary" class="q-mr-md" />{{ $t("productionwindows")
+                }}
               </li>
               <li>
-                <q-icon
-                  size="1.5rem"
-                  name="check_circle"
-                  color="primary"
-                  class="q-mr-md"
-                />{{ $t("freedelivery") }}
-              </li>
-              <li>
-                <q-icon
-                  size="1.5rem"
-                  name="check_circle"
-                  color="primary"
-                  class="q-mr-md"
-                />{{ $t("productionwindows") }}
-              </li>
-              <li>
-                <q-icon
-                  size="1.5rem"
-                  name="check_circle"
-                  color="primary"
-                  class="q-mr-md"
-                />{{ $t("installation") }}
+                <q-icon size="1.5rem" name="check_circle" color="primary" class="q-mr-md" />{{ $t("installation") }}
               </li>
             </ul>
             <button class="home__text-btn" @click="contactDialog()">
-              {{ $t("contactus") }}</button
-            ><PartnerRequestForm />
+              {{ $t("contactus") }}</button>
+            <PartnerRequestForm />
           </div>
           <div class="home__content" v-if="!$q.screen.xs && !$q.screen.sm">
             <div class="home__content-image">
-              <img
-                :style="{ width: 'calc(80%)' }"
-                src="../assets/2Elegante.png"
-                alt="windows_colored"
-                srcset=""
-              />
+              <img :style="{ width: 'calc(80%)' }" src="../assets/2Elegante.png" alt="пвх профиль элегант" srcset="" />
             </div>
           </div>
         </div>
@@ -253,192 +144,127 @@
 
         <!-- quality section -->
         <div class="bg-primary quality">
-          <div
-            class="q-pa-md container"
-            :style="{
-              display: 'flex',
-              flexDirection: 'column',
-              height: 'calc(100vh - 82px)',
-              width: '100%',
-            }"
-          >
-            <div
-              class="quality__title"
-              :style="{
-                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '24px',
-                justifyContent:
-                  !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
-              }"
-            >
+          <div class="q-pa-md container" :style="{
+            display: 'flex',
+            flexDirection: 'column',
+            height: 'calc(100vh - 82px)',
+            width: '100%',
+          }">
+            <div class="quality__title" :style="{
+              fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '24px',
+              justifyContent:
+                !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+            }">
               {{ $t("qualityofproducts") }}
             </div>
             <div style="height: 100%; width: 100%">
-              <q-carousel
-                :interval="1000"
-                :autoplay="true"
-                v-model="slideQuality"
-                transition-prev="scale"
-                transition-next="scale"
-                control-type="outline"
-                swipeable
-                animated
-                navigation
-                arrows
-                infinite
-                height="calc(100%)"
-                class="bg-primary text-white"
-              >
+              <q-carousel :interval="1000" :autoplay="true" v-model="slideQuality" transition-prev="scale"
+                transition-next="scale" control-type="outline" swipeable animated navigation arrows infinite
+                height="calc(100%)" class="bg-primary text-white">
                 <template v-slot:navigation-icon="{ active, onClick }">
-                  <q-btn
-                    v-if="active"
-                    size="xs"
-                    color="white"
-                    style="background-color: #fff"
-                    flat
-                    round
-                    dense
-                    @click="onClick"
-                  />
-                  <q-btn
-                    v-else
-                    size="xs"
-                    color="white"
-                    outline
-                    round
-                    dense
-                    @click="onClick"
-                  />
+                  <q-btn v-if="active" size="xs" color="white" style="background-color: #fff" flat round dense
+                    @click="onClick" />
+                  <q-btn v-else size="xs" color="white" outline round dense @click="onClick" />
                 </template>
 
-                <q-carousel-slide
-                  name="style"
-                  class="column no-wrap flex-center"
-                >
-                  <div
-                    :style="{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '100%',
-                      height: '100%',
-                    }"
-                  >
-                    <div
-                      :style="{
-                        position: 'relative',
-                        width: !$q.screen.xs ? '' : '60%',
-                      }"
-                    >
-                      <div
-                        :style="{
-                          position: 'absolute',
-                          top: '-10px',
-                          right: !$q.screen.xs ? '-80px' : '-40px',
-                          backgroundColor: '#ffffff',
-                          color: '#F97B22',
-                          padding: !$q.screen.xs ? '10px 40px' : '10px 20px',
-                          fontSize: !$q.screen.xs ? '24px' : '16px',
-                          fontWeight: '700',
-                          borderTopLeftRadius: '25px',
-                          borderBottomRightRadius: '25px',
-                        }"
-                      >
+                <q-carousel-slide name="style" class="column no-wrap flex-center">
+                  <div :style="{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    height: '100%',
+                  }">
+                    <div :style="{
+                      position: 'relative',
+                      width: !$q.screen.xs ? '' : '60%',
+                    }">
+                      <div :style="{
+                        position: 'absolute',
+                        top: '-10px',
+                        right: !$q.screen.xs ? '-80px' : '-40px',
+                        backgroundColor: '#ffffff',
+                        color: '#F97B22',
+                        padding: !$q.screen.xs ? '10px 40px' : '10px 20px',
+                        fontSize: !$q.screen.xs ? '24px' : '16px',
+                        fontWeight: '700',
+                        borderTopLeftRadius: '25px',
+                        borderBottomRightRadius: '25px',
+                      }">
                         {{ $t("summer") }}
                       </div>
-                      <div
-                        :style="{
-                          padding: '30px',
-                          borderTopLeftRadius: '25px',
-                          borderBottomRightRadius: '25px',
-                          border: '1px solid white',
-                          backgroundColor: '#F5F3C1',
-                        }"
-                      >
-                        <img
-                          src="../assets/glass_in_summer.svg"
-                          alt="summer"
-                          :style="{ width: '100%' }"
-                        />
+                      <div :style="{
+                        padding: '30px',
+                        borderTopLeftRadius: '25px',
+                        borderBottomRightRadius: '25px',
+                        border: '1px solid white',
+                        backgroundColor: '#F5F3C1',
+                      }">
+                        <img src="../assets/glass_in_summer.svg" alt="дераза ёзда, пластик профиль, чидам"
+                          :style="{ width: '100%' }" />
                       </div>
                     </div>
 
-                    <div
-                      class="col justify-center"
-                      :style="{
-                        fontSize:
-                          !$q.screen.xs && !$q.screen.sm ? '18px' : '12px',
-                        textAlign: 'center',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }"
-                    >
+                    <div class="col justify-center" :style="{
+                      fontSize:
+                        !$q.screen.xs && !$q.screen.sm ? '18px' : '12px',
+                      textAlign: 'center',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }">
                       {{ $t("summercontent") }}
                     </div>
                   </div>
                 </q-carousel-slide>
                 <q-carousel-slide name="tv" class="column no-wrap flex-center">
-                  <div
-                    :style="{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '100%',
-                      height: '100%',
-                    }"
-                  >
-                    <div
-                      :style="{
-                        position: 'relative',
-                        width: !$q.screen.xs ? '' : '60%',
-                      }"
-                    >
-                      <div
-                        :style="{
-                          position: 'absolute',
-                          top: '-10px',
-                          right: !$q.screen.xs ? '-80px' : '-40px',
-                          backgroundColor: '#ffffff',
-                          color: '#19A7CE',
-                          padding: !$q.screen.xs ? '10px 40px' : '10px 20px',
-                          fontSize: !$q.screen.xs ? '24px' : '16px',
-                          fontWeight: '700',
-                          borderTopLeftRadius: '25px',
-                          borderBottomRightRadius: '25px',
-                        }"
-                      >
+                  <div :style="{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    height: '100%',
+                  }">
+                    <div :style="{
+                      position: 'relative',
+                      width: !$q.screen.xs ? '' : '60%',
+                    }">
+                      <div :style="{
+                        position: 'absolute',
+                        top: '-10px',
+                        right: !$q.screen.xs ? '-80px' : '-40px',
+                        backgroundColor: '#ffffff',
+                        color: '#19A7CE',
+                        padding: !$q.screen.xs ? '10px 40px' : '10px 20px',
+                        fontSize: !$q.screen.xs ? '24px' : '16px',
+                        fontWeight: '700',
+                        borderTopLeftRadius: '25px',
+                        borderBottomRightRadius: '25px',
+                      }">
                         {{ $t("winter") }}
                       </div>
-                      <div
-                        :style="{
-                          padding: '30px',
-                          borderTopLeftRadius: '25px',
-                          borderBottomRightRadius: '25px',
-                          border: '1px solid white',
-                          backgroundColor: '#B0DAFF',
-                        }"
-                      >
-                        <img
-                          src="../assets/glass_in_winter.svg"
-                          alt="winter"
-                          :style="{ width: '100%' }"
-                        />
+                      <div :style="{
+                        padding: '30px',
+                        borderTopLeftRadius: '25px',
+                        borderBottomRightRadius: '25px',
+                        border: '1px solid white',
+                        backgroundColor: '#B0DAFF',
+                      }">
+                        <img src="../assets/glass_in_winter.svg" alt="совукда, профил пластик, пвх, сифат"
+                          :style="{ width: '100%' }" />
                       </div>
                     </div>
 
-                    <div
-                      class="col justify-center"
-                      :style="{
-                        fontSize:
-                          !$q.screen.xs && !$q.screen.sm ? '18px' : '12px',
-                        textAlign: 'center',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }"
-                    >
+                    <div class="col justify-center" :style="{
+                      fontSize:
+                        !$q.screen.xs && !$q.screen.sm ? '18px' : '12px',
+                      textAlign: 'center',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }">
                       {{ $t("wintercontent") }}
                     </div>
                   </div>
@@ -451,76 +277,50 @@
         <!-- colored profiles section -->
         <div class="colored" style="height: calc(100vh - 82px)">
           <div class="q-pa-md container" style="height: 100%">
-            <div
-              class="colored__title"
-              :style="{
-                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
-                justifyContent:
-                  !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
-              }"
-            >
+            <div class="colored__title" :style="{
+              fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
+              justifyContent:
+                !$q.screen.xs && !$q.screen.sm ? 'flex-start' : 'center',
+            }">
               {{ $t("choosecolor") }}
             </div>
-            <div
-              class="row"
-              :style="{
-                height: '90%',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }"
-            >
-              <div
-                class=""
-                :style="{
-                  width: !$q.screen.xs ? '600px' : '90vw',
-                  backgroundColor: 'white',
-                  padding: '20px',
-                  border: '1px solid white',
-                  borderTopLeftRadius: '25px',
-                  borderBottomRightRadius: '25px',
-                }"
-              >
-                <img
-                  :style="{
-                    width: '100%',
-                  }"
-                  v-for="(image, index) in selectedLaminatedProfiles"
-                  :key="index"
-                  :src="image.src"
-                  :alt="image.text"
-                />
+            <div class="row" :style="{
+              height: '90%',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }">
+              <div class="" :style="{
+                width: !$q.screen.xs ? '600px' : '90vw',
+                backgroundColor: 'white',
+                padding: '20px',
+                border: '1px solid white',
+                borderTopLeftRadius: '25px',
+                borderBottomRightRadius: '25px',
+              }">
+                <img :style="{
+                  width: '100%',
+                }" v-for="(image, index) in selectedLaminatedProfiles" :key="index" :src="image.src"
+                  :alt="image.text" />
               </div>
-              <div
-                class="row justify-center items-center"
-                :style="{
-                  flex: 'auto',
-                  gap: '30px',
-                }"
-              >
-                <div
-                  class="text-center"
-                  v-for="(image, index) in laminatedProfiles"
-                  :key="index"
-                  :style="{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: '10px',
-                  }"
-                >
-                  <div
-                    class="rounded-lamination-picker shadow-2 q-pa-md"
-                    :style="{
-                      height: !$q.screen.xs ? '60px' : '40px',
-                      width: !$q.screen.xs ? '60px' : '40px',
-                      backgroundImage: 'url(' + image.lamination + ')',
-                      backgroundColor: 'white',
-                      cursor: 'pointer',
-                      border: '1px solid white',
-                    }"
-                    @click="selectedImageIndex = index"
-                  ></div>
+              <div class="row justify-center items-center" :style="{
+                flex: 'auto',
+                gap: '30px',
+              }">
+                <div class="text-center" v-for="(image, index) in laminatedProfiles" :key="index" :style="{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '10px',
+                }">
+                  <div class="rounded-lamination-picker shadow-2 q-pa-md" :style="{
+                    height: !$q.screen.xs ? '60px' : '40px',
+                    width: !$q.screen.xs ? '60px' : '40px',
+                    backgroundImage: 'url(' + image.lamination + ')',
+                    backgroundColor: 'white',
+                    cursor: 'pointer',
+                    border: '1px solid white',
+                  }" @click="selectedImageIndex = index"></div>
 
                   <div class="text-white q-mt-md">
                     {{ $t(image.text) }}
@@ -540,29 +340,19 @@
 
         <!-- services section -->
         <div class="container">
-          <div
-            class="q-pa-md services"
-            :style="{
-              minHeight: 'calc(100vh - 82px)',
-              width:
-                !$q.screen.xs && !$q.screen.sm ? 'calc(60vw)' : 'calc(90vw)',
-            }"
-          >
-            <span
-              class="services__title"
-              :style="{
-                fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
-              }"
-            >
+          <div class="q-pa-md services" :style="{
+            minHeight: 'calc(100vh - 82px)',
+            width:
+              !$q.screen.xs && !$q.screen.sm ? 'calc(60vw)' : 'calc(90vw)',
+          }">
+            <span class="services__title" :style="{
+              fontSize: !$q.screen.xs && !$q.screen.sm ? '48px' : '36px',
+            }">
               {{ $t("our") }}
               <span class="text-primary">&nbsp;{{ $t("servicess") }}</span>
             </span>
             <q-timeline class="" color="primary">
-              <q-timeline-entry
-                :title="$t('production')"
-                icon="warehouse"
-                color="primary"
-              >
+              <q-timeline-entry :title="$t('production')" icon="warehouse" color="primary">
                 <div class="bg-grey-1 q-pa-sm content">
                   {{ $t("productioncontent") }}
                 </div>
@@ -578,19 +368,12 @@
                 </div>
               </q-timeline-entry>
 
-              <q-timeline-entry
-                :title="$t('installationwork')"
-                icon="construction"
-              >
+              <q-timeline-entry :title="$t('installationwork')" icon="construction">
                 <div class="bg-grey-1 q-pa-sm content">
                   {{ $t("installationworkcontent") }}
                 </div>
               </q-timeline-entry>
-              <q-timeline-entry
-                :title="$t('guaranteedservice')"
-                color="green"
-                icon="done_all"
-              >
+              <q-timeline-entry :title="$t('guaranteedservice')" color="green" icon="done_all">
                 <div class="bg-grey-1 q-pa-sm content">
                   {{ $t("guaranteedservicecontent") }}
                 </div>
@@ -600,54 +383,38 @@
         </div>
 
         <!-- contact section -->
-        <div
-          class="shadow-2"
-          :style="{
-            display: 'flex',
-            flexDirection: !$q.screen.xs ? 'row' : 'column',
-            width: !$q.screen.xs ? 'calc(100vw)' : 'calc(100vw)',
-            height: !$q.screen.xs ? 'calc(30vw)' : 'calc(100vh)',
-          }"
-        >
-          <div
-            :style="{
-              width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
-              height: 'calc(100%)',
-            }"
-          >
+        <div class="shadow-2" :style="{
+          display: 'flex',
+          flexDirection: !$q.screen.xs ? 'row' : 'column',
+          width: !$q.screen.xs ? 'calc(100vw)' : 'calc(100vw)',
+          height: !$q.screen.xs ? 'calc(30vw)' : 'calc(100vh)',
+        }">
+          <div :style="{
+            width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
+            height: 'calc(100%)',
+          }">
             <MapLocation />
           </div>
-          <div
-            class="q-pa-md"
-            :style="{
-              width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
-              height: 'calc(100%)',
-            }"
-          >
+          <div class="q-pa-md" :style="{
+            width: !$q.screen.xs ? 'calc(50%)' : 'calc(100%)',
+            height: 'calc(100%)',
+          }">
             <p class="text-black" style="font-size: 26px; font-weight: 600">
               {{ $t("contact") }}
             </p>
             <div class="text-black" style="font-size: 18px">
-              <q-icon name="phone" class="q-mr-md" /><a
-                style="
+              <q-icon name="phone" class="q-mr-md" /><a style="
                   font-size: 18px;
                   text-decoration: none !important;
                   color: black;
-                "
-                href="tel:+99895019000"
-                >(+998) 91 501-90-00</a
-              >
+                " href="tel:+99895019000">(+998) 91 501-90-00</a>
               <br />
               <q-icon name="email" class="q-mr-md" />
-              <a
-                style="
+              <a style="
                   font-size: 18px;
                   text-decoration: none !important;
                   color: black;
-                "
-                href="mailto:info@uzplast.com"
-                >info@uzplast.com</a
-              >
+                " href="mailto:info@uzplast.com">info@uzplast.com</a>
             </div>
             <div class="text-black" style="font-size: 18px">
               <q-icon name="location_on" class="q-mr-md" />{{ $t("address") }}
@@ -657,50 +424,37 @@
 
         <!-- footer -->
         <div class="footer text-white">
-          <div
-            class="q-pa-md container"
-            :style="{
+          <div class="q-pa-md container" :style="{
+            display: 'flex',
+            flexDirection: !$q.screen.xs && !$q.screen.sm ? 'row' : 'column',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            width: '100%',
+            height: '100%',
+          }">
+            <div :style="{
               display: 'flex',
-              flexDirection: !$q.screen.xs && !$q.screen.sm ? 'row' : 'column',
-              justifyContent: 'space-between',
+              justifyContent:
+                !$q.screen.xs && !$q.screen.sm ? 'start' : 'center',
               alignItems: 'center',
-              width: '100%',
+              width: !$q.screen.xs && !$q.screen.sm ? '33%' : '100%',
               height: '100%',
-            }"
-          >
-            <div
-              :style="{
-                display: 'flex',
-                justifyContent:
-                  !$q.screen.xs && !$q.screen.sm ? 'start' : 'center',
-                alignItems: 'center',
-                width: !$q.screen.xs && !$q.screen.sm ? '33%' : '100%',
-                height: '100%',
-              }"
-            >
+            }">
               © 2023 Uzplast. {{ $t("rights") }}.
             </div>
-            <div
-              class="row items-center justify-center"
-              style="width: 34%; height: 100%"
-            >
-              <img
-                src="../assets/logo_uzplast_white.svg"
-                alt="Uzplast logo"
-                v-bind:width="220"
-              />
+            <div class="row items-center justify-center" style="width: 34%; height: 100%">
+              <img src="../assets/logo_uzplast_white.svg" alt="Uzplast logo" v-bind:width="220" />
             </div>
-            <div
-              :style="{
-                display: 'flex',
-                justifyContent:
-                  !$q.screen.xs && !$q.screen.sm ? 'end' : 'center',
-                alignItems: 'center',
-                width: !$q.screen.xs && !$q.screen.sm ? '33%' : '100%',
-                height: '100%',
-              }"
-            >
-              <q-icon name="mdi-telegram" size="lg" class="q-mx-sm" />
+            <div :style="{
+              display: 'flex',
+              justifyContent:
+                !$q.screen.xs && !$q.screen.sm ? 'end' : 'center',
+              alignItems: 'center',
+              width: !$q.screen.xs && !$q.screen.sm ? '33%' : '100%',
+              height: '100%',
+            }">
+              <a href="https://t.me/uzplast_com"><q-icon color="white" name="mdi-telegram" size="lg"
+                  class="q-mx-sm"></q-icon></a>
               <q-icon name="mdi-facebook" size="lg" class="q-mx-sm" />
               <q-icon name="mdi-youtube" size="lg" class="q-mx-sm" />
               <q-icon name="mdi-instagram" size="lg" class="q-mx-sm" />
@@ -708,21 +462,15 @@
           </div>
         </div>
       </q-scroll-area>
-      <q-btn
-        v-if="scrollPos > 400"
-        round
-        color="primary"
-        icon="expand_less"
-        @click="scrollToDiv(0)"
-        class="scroll-to-top"
-      />
+      <q-btn v-if="scrollPos > 400" round color="primary" icon="expand_less" @click="scrollToDiv(0)"
+        class="scroll-to-top" />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import router from "src/router";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import DrawerRight from "./Drawer.vue";
 import MapLocation from "../components/MapLocation.vue";
 import PartnerRequestForm from "src/components/PartnerRequestForm.vue";
@@ -781,13 +529,19 @@ export default {
     const router = useRouter();
 
     const { t, locale } = useI18n({ useScope: "global" });
-
     const selectedLanguage = ref({
-      selected: localStorage.getItem("locale") ?? "Uz",
-      icon: `./assets/${
-        localStorage.getItem("locale")?.toLowerCase() ?? "uz"
-      }.svg`,
+      selected: 'Uz',
+      icon: './assets/uz.svg',
     });
+
+    onMounted(() => {
+      const locale = localStorage.getItem('locale') ?? 'Uz';
+      selectedLanguage.value = {
+        selected: locale,
+        icon: `./assets/${locale.toLowerCase()}.svg`,
+      };
+    })
+
     const language = ref([
       { label: "O`zbekcha", value: "Uz", image: "./assets/uz.svg" },
       { label: "English", value: "En", image: "./assets/en.svg" },
@@ -806,11 +560,15 @@ export default {
       );
     }
 
-    function handleChangeLang(newValue) {
-      locale.value = newValue.value;
-      localStorage.setItem("locale", locale.value);
-    }
+    onMounted(() => {
+      locale.value = selectedLanguage.value;
+    });
 
+    const handleChangeLang = (lang) => {
+      selectedLanguage.value = lang;
+      localStorage.setItem('locale', lang);
+      locale.value = lang;
+    };
     function handleOptionClick(selectedVal, icon) {
       selectedLanguage.value.selected = selectedVal;
       selectedLanguage.value.icon = icon;

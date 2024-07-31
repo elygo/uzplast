@@ -146,7 +146,7 @@ module.exports = configure(function (ctx) {
       manifest: {
         name: `uzplast`,
         short_name: `uzplast`,
-        description: `web app for a company`,
+        description: `Uzplast - pvc window profile manufacturing company. Производство оконных ПВХ профилей. Derazalar uchun PVX profillar ishlab chiqarish.`,
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",

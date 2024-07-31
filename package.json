@@ -1,12 +1,13 @@
 {
   "name": "uzplast",
   "version": "0.0.1",
-  "description": "web app for a company",
-  "productName": "UzPlast",
+  "description": "Uzplast - pvc window profile manufacturing company. Производство оконных ПВХ профилей. Derazalar uchun PVX profillar ishlab chiqarish.",
+  "productName": "ПВХ профили, окна и двери. PVX profillar, Deraza va eshiklar.",
   "author": "elygo <el.uzb93@gmail.com>",
   "private": true,
   "scripts": {
     "start": "quasar dev",
+    "ssr": "quasar dev -m ssr",
     "build": "quasar build",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
